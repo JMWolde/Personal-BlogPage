@@ -16,14 +16,14 @@ export default function CreatePage() {
             {/*        /!*<textarea placeholder={"Type here nigga"} onChange={e => setText(e.target.value)} id="TextPost"></textarea>*!/*/}
             {/*        /!*<textarea placeholder={"Write Here"} id="TextBox.tsx"></textarea>*!/*/}
             {/*        <input type="file" multiple onChange={e => e.target.files && showImages(e.target.files)}/>*/}
-                    <div id="preview"></div>
+            {/*        <div id="preview"></div>*/}
+            {/*<div id = "PostCard"></div>*/}
             {/*<Card></Card>*/}
             {/*    </Card>*/}
             {/*    <TextPost/>*/}
 
-
+<PostBox></PostBox>
             {/*</div>*/}
-            <PostBox></PostBox>
 
             <h1>This is post creation</h1>
         </main>
@@ -35,45 +35,45 @@ export default function CreatePage() {
 
 
 
-// async function handleImageUpload(files: FileList) {
-//     for (const file of files) {
-//         const { data , error } = await supabase.storage
-//             .from("PostImages")
-//             .upload(`images/${file.name}`, file)
-//         console.log(error)
-//         const { data: urlData} = await supabase.storage
-//         .from("PostImages")
-//             .getPublicUrl(`images/${file.name}`)
-//         const imageURL = urlData.publicUrl
-//         await supabase.from("Posts").insert({ Images: imageURL })
-//         // await supabase.from("Posts").insert({ Images: imageURL })
-//
-//
-//
-//         const { data : PostImage } = await supabase
-//             .from("Posts")
-//             .select("Images")
-//             .order("created_at" , {ascending: false})
-//             .limit(1)
-//         DisplayImages(PostImage?.[0].Images && PostImage[0].Images)
-//
-//
-//     }
-//
-// }
+async function handleImageUpload(files: FileList) {
+    for (const file of files) {
+        const { data , error } = await supabase.storage
+            .from("PostImages")
+            .upload(`images/${file.name}`, file)
+        console.log(error)
+        const { data: urlData} = await supabase.storage
+        .from("PostImages")
+            .getPublicUrl(`images/${file.name}`)
+        const imageURL = urlData.publicUrl
+        await supabase.from("Posts").insert({ Images: imageURL })
+        await supabase.from("Posts").insert({ Images: imageURL })
 
 
 
-// async function handleTextUpload(Text_Content: string) {
-//         await supabase.from("Posts").insert({ Post_Text: Text_Content })
-//     const { data : PostText } = await supabase
-//     .from("Posts")
-//         .select("Post_Text")
-//         .order("created_at" , {ascending: false})
-//         .limit(1)
-//     DisplayText(PostText?.[0].Post_Text && PostText[0].Post_Text)
-//
-//     }
+        const { data : PostImage } = await supabase
+            .from("Posts")
+            .select("Images")
+            .order("created_at" , {ascending: false})
+            .limit(1)
+        DisplayImages(PostImage?.[0].Images && PostImage[0].Images)
+
+
+    }
+
+}
+
+
+
+async function handleTextUpload(Text_Content: string) {
+        await supabase.from("Posts").insert({ Post_Text: Text_Content })
+    const { data : PostText } = await supabase
+    .from("Posts")
+        .select("Post_Text")
+        .order("created_at" , {ascending: false})
+        .limit(1)
+    DisplayText(PostText?.[0].Post_Text && PostText[0].Post_Text)
+
+    }
 
 
     async function HandlePostUpload(files : FileList, Text_Content : string) {
@@ -94,15 +94,23 @@ export default function CreatePage() {
     async function HandlePostRetrieval(files : FileList, Text_Content : string) {
     const {data : Post} = await supabase
         .from("Posts")
-        .select("Post_Text")
+        .select("")
         .order("created_at" , {ascending: false})
-        .limit(1)
-        DisplayPost(Post?.[0] && Post[0])
+        DisplayPost(Post?.[0])
     }
 
 
-async function DisplayPost(Posts : any){
+async function DisplayPost(Post){
 
+    const PostCard = document.createElement("div")
+    PostCard.className = "PostCard"
+    document.body.appendChild(PostCard)
+const TextDisplay = document.createElement("p")
+    const imageDisplay = document.createElement("img")
+    TextDisplay.innerText= Post.Post_Text
+    imageDisplay.src = Post.Images
+    PostCard!.appendChild(imageDisplay)
+    PostCard!.appendChild(TextDisplay)
 }
 
 
@@ -120,12 +128,18 @@ async function DisplayPost(Posts : any){
 
 
 async function DisplayText(Post_Text: string) {
-    // const preview = document.getElementById("preview")
-    const FinalPostCard = document.createElement("Card");
-    const FinalPostText = document.createElement("p")
-    FinalPostText.innerText = Post_Text
-    FinalPostCard!.appendChild(FinalPostText)
-    // preview!.appendChild(FinalPostText);
+    // // const preview = document.getElementById("preview")
+    // const FinalPostCard = document.createElement("Card");
+    // const FinalPostText = document.createElement("p")
+    // FinalPostText.innerText = Post_Text
+    // FinalPostCard!.appendChild(FinalPostText)
+    // // preview!.appendChild(FinalPostText);
+    const PostCard = document.createElement("div")
+    PostCard.className = "PostCard"
+    document.body.appendChild(PostCard)
+    const TextDisplay = document.createElement("p")
+    TextDisplay.innerText= Post_Text
+    PostCard!.appendChild(TextDisplay)
 }
 
 
@@ -133,12 +147,19 @@ async function DisplayText(Post_Text: string) {
 
 
 async function DisplayImages(Images : string) {
-    // const preview = document.getElementById("preview");
-    const FinalPostCard = document.createElement("Card");
-        const img = document.createElement("img");
-        img.src = Images;
-    FinalPostCard!.appendChild(img)
-        // preview!.appendChild(img);
+    // // const preview = document.getElementById("preview");
+    // const FinalPostCard = document.createElement("Card");
+    //     const img = document.createElement("img");
+    //     img.src = Images;
+    // FinalPostCard!.appendChild(img)
+    //     // preview!.appendChild(img);
+c
+    const PostCard = document.createElement("div")
+    PostCard.className = "PostCard"
+    document.body.appendChild(PostCard)
+    const imageDisplay = document.createElement("img")
+    imageDisplay.src = Images
+    PostCard!.appendChild(imageDisplay)
 }
 
 
@@ -152,7 +173,15 @@ function PostBox() {
 
 
     function CreatePost() {
-        Post_image && HandlePostUpload(Post_image, text)
+        if(Post_image && text) {
+            Post_image && HandlePostUpload(Post_image, text)
+        } else if (Post_image) {
+            Post_image && handleImageUpload(Post_image)
+        } else if (text) {
+            handleTextUpload(text)
+        } else {
+            alert("You fucked up nigga")
+        }
 
 
     }
@@ -160,11 +189,13 @@ function PostBox() {
 
 
     function showImages(files: FileList) {
-        const preview = document.getElementById("preview");
+        const preview1 = document.createElement("div")
+        preview1.className = "preview"
+        document.body.appendChild(preview1)
         for (const file of files) {
             const img = document.createElement("img");
             img.src = URL.createObjectURL(file);
-            preview!.appendChild(img);
+            preview1!.appendChild(img);
         }
     }
 
