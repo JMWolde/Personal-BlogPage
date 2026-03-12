@@ -3,8 +3,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 const videos = [
     "/assets/videos/bgvideos/BK_HOME.mp4",
-    "/assets/videos/bgvideos/GTA_3.mp4",
-    "/assets/videos/bgvideos/GTA_SA.mp4",
+    // "/assets/videos/bgvideos/GTA_3.mp4",
+    // "/assets/videos/bgvideos/GTA_SA.mp4",
     "/assets/videos/bgvideos/IDK_1.mp4",
     "/assets/videos/bgvideos/JSR_SHIBUYA.mp4",
     "/assets/videos/bgvideos/KH_ISLAND.mp4",

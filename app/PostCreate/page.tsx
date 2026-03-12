@@ -21,6 +21,7 @@ export default function CreatePage() {
             {/*<Card></Card>*/}
             {/*    </Card>*/}
             {/*    <TextPost/>*/}
+            <div id= "PostContainer"></div>
 
 <PostBox></PostBox>
             {/*</div>*/}
@@ -134,12 +135,13 @@ async function DisplayText(Post_Text: string) {
     // FinalPostText.innerText = Post_Text
     // FinalPostCard!.appendChild(FinalPostText)
     // // preview!.appendChild(FinalPostText);
-    const PostCard = document.createElement("div")
+    const PostCon = document.getElementById("PostContainer") // post container
+    const PostCard = document.createElement("div") // Post individual
     PostCard.className = "PostCard"
-    document.body.appendChild(PostCard)
     const TextDisplay = document.createElement("p")
     TextDisplay.innerText= Post_Text
     PostCard!.appendChild(TextDisplay)
+    PostCon!.prepend(PostCard)
 }
 
 
@@ -153,13 +155,12 @@ async function DisplayImages(Images : string) {
     //     img.src = Images;
     // FinalPostCard!.appendChild(img)
     //     // preview!.appendChild(img);
-c
     const PostCard = document.createElement("div")
     PostCard.className = "PostCard"
     document.body.appendChild(PostCard)
     const imageDisplay = document.createElement("img")
     imageDisplay.src = Images
-    PostCard!.appendChild(imageDisplay)
+    PostCard!.prepend(imageDisplay)
 }
 
 
@@ -180,7 +181,7 @@ function PostBox() {
         } else if (text) {
             handleTextUpload(text)
         } else {
-            alert("You fucked up nigga")
+            // alert("You fucked up nigga")
         }
 
 

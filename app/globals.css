@@ -1,4 +1,10 @@
 @import "tailwindcss";
+@font-face {
+  font-family: 'Comico-Regular';
+  src :url("../components/Comico-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
 :root {
   --background: #ffffff;
@@ -39,24 +45,53 @@ body {
 
 
 
+#PostContainer {
+display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  gap: 30px;
+  min-height: 100vh
 
+}
 .PostCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-content: space-between;
   width : 500px;
-  height : 500px;
+  height : 250px;
   /*background-color: azure;*/
   background: rgba(0, 127, 255, 0.1);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
+.PostCard h4 {
+  font-family: 'Comico-Regular';
+  margin-top: 110px;
+  font-size: 20px;
+  color: white;
+  display: flex;
+  text-indent: .5em;
+}
 .PostCard img {
-  width : 250px;
-  height : 250px;
+  width : 150px;
+  height : 150px;
 }
 .PostCard p {
-font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  color: black;
+  font-family: 'Comico-Regular';
+  font-size: 25px;
+  color: white;
 }
+.PostCard h1 {
+  font-family: 'Comico-Regular';
+  font-size: 40px;
+  font-weight: normal;
+  color: azure;
+  text-indent: .5em;
+}
+
 
 
 
@@ -74,8 +109,6 @@ font-family: Arial, Helvetica, sans-serif;
   width: 700px;
 }
 .PostBox {
-  display: flex;
-  justify-content: center;
 }
 .CreatePost {
   width: 500px;
