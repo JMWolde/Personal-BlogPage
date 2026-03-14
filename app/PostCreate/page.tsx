@@ -1,5 +1,6 @@
 "use client"
 import "../globals.css";
+import "../card.css";
 import Card from "@/components/Card";
 // import TextPost from "@/components/TextBox";
 import {useState} from "react";

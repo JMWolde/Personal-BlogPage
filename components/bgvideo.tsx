@@ -13,7 +13,7 @@ const videos = [
     "/assets/videos/bgvideos/MK8DX_NEOBOWSER.mp4",
     "/assets/videos/bgvideos/MK_DK.mp4",
     "/assets/videos/bgvideos/MK_MOOMOO.mp4",
-    "/assets/videos/bgvideos/MK_SNOW.mp4",
+    // "/assets/videos/bgvideos/MK_SNOW.mp4",
     "/assets/videos/bgvideos/MK_TOADCITY.mp4",
     "/assets/videos/bgvideos/MS_IDKSUNSET.mp4",
     "/assets/videos/bgvideos/SB_BB1.mp4",
