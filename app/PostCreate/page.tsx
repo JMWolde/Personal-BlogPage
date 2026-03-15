@@ -24,6 +24,8 @@ export default function CreatePage() {
             {/*    <TextPost/>*/}
             <div id= "PostContainer"></div>
 
+
+
 <PostBox></PostBox>
             {/*</div>*/}
 

@@ -9,6 +9,7 @@ import { useSearchParams } from "next/navigation";
 import {useEffect, useState} from "react";
 import {useRouter} from "next/navigation";
 import {supabase} from "@/lib/supabase";
+import {Butterfly_Kids} from "next/dist/compiled/@next/font/dist/google";
 export default function HomePage() {
     const searchParams = useSearchParams();
     const value = searchParams.get("key");
@@ -107,15 +108,19 @@ async function DisplayText(Post) {
     const PostCard = document.createElement("div")// Post individual
     const ProfileName = document.createElement("h1")
     const DateText = document.createElement("h4")
+    const PostID = document.createElement("h2")
     DateText.innerText= await ParseDate(Post)
     ProfileName.innerText= "JOSH"
+    PostID.innerText= Post.id;
     PostCard.className = "PostCard"
     const TextDisplay = document.createElement("p")
     TextDisplay.innerText= Post.Post_Text
     PostCard!.appendChild(TextDisplay)
     PostCard!.prepend(ProfileName)
     PostCard!.appendChild(DateText)
-    PostCon!.prepend(PostCard)
+    PostCard!.appendChild(PostID)
+    const NEWPostCard = getRemoveBTN(PostCard)
+    PostCon!.prepend(NEWPostCard)
 }
 async function DisplayImages(Post) {
     const PostCon = document.getElementById("PostContainer")
@@ -132,5 +137,24 @@ async function DisplayImages(Post) {
     PostCard!.appendChild(DateText)
     PostCon!.prepend(PostCard)
 }
-
+function getRemoveBTN(PostCard) {
+   const RemoveBTN = document.createElement("button")
+    RemoveBTN.className = "PostCard"
+    RemoveBTN.innerText= "Remove"
+    RemoveBTN.onclick = () => removeCard(PostCard);
+    PostCard!.appendChild(RemoveBTN)
+    return PostCard
+}
+async function removeCard(PostCard) {
+    const key = process.env.NEXT_PUBLIC_MY_SECRET_KEY
+    const PostCon = document.getElementById("PostContainer")
+    const PostID = PostCard.querySelector("h2")
+    const value = window.prompt("Enter Master Key To Remove")
+    if (value == key) {
+        PostCon!.removeChild(PostCard)
+        await supabase.from("Posts").delete().eq('id', PostID.innerText)
+    } else {
+        alert("NAH NAH")
+    }
+}
 
