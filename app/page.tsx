@@ -1,15 +1,19 @@
 "use client"
-import "./globals.css";
-import "./card.css";
+import "./css/globals.css";
+import "./css/card.css";
+import "./css/MainCard.css";
+import "./css/PostCard.css";
+import "./css/Button.css";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat"
 dayjs.extend(customParseFormat)
 import Card from "../components/Card";
 import { useSearchParams } from "next/navigation";
-import {useEffect, useState} from "react";
+import {use, useEffect, useState} from "react";
 import {useRouter} from "next/navigation";
 import {supabase} from "@/lib/supabase";
 import {Butterfly_Kids} from "next/dist/compiled/@next/font/dist/google";
+import * as sea from "node:sea";
 export default function HomePage() {
     const searchParams = useSearchParams();
     const value = searchParams.get("key");
@@ -30,9 +34,6 @@ export default function HomePage() {
 }
 
 // HELPER FUNCTIONS
-
-
-
 
 function RetrievePosts() {
     const [Posts, setPosts] = useState([])
@@ -80,7 +81,7 @@ async function DisplayAllPosts(Post) {
         } else if (post.Post_Text) {
             DisplayText(post)
         } else {
-            alert("You fucked up nigga")
+            alert("There are somehow 0 posts")
         }
     }
 }
@@ -89,18 +90,31 @@ async function DisplayPost(Post){
     const PostCard = document.createElement("div")
     const ProfileName = document.createElement("h1")
     const DateText = document.createElement("h4")
+    const PostID = document.createElement("h2")
+
+
+
+    PostID.innerText= Post.id;
     DateText.innerText= await ParseDate(Post)
     PostCard.className = "PostCard"
     ProfileName.innerText= "JOSH"
+
+
     const TextDisplay = document.createElement("p")
     const imageDisplay = document.createElement("img")
+
+
     TextDisplay.innerText= Post.Post_Text
     imageDisplay.src = Post.Images
+
+
     PostCard!.appendChild(imageDisplay)
     PostCard!.appendChild(TextDisplay)
     PostCard!.prepend(ProfileName)
+    PostCard!.appendChild(PostID)
+    const NEWPostCard = getRemoveBTN(PostCard)
     PostCard!.appendChild(DateText)
-    PostCon!.prepend(PostCard)
+    PostCon!.prepend(NEWPostCard)
 }
 
 async function DisplayText(Post) {
@@ -109,42 +123,92 @@ async function DisplayText(Post) {
     const ProfileName = document.createElement("h1")
     const DateText = document.createElement("h4")
     const PostID = document.createElement("h2")
+
     DateText.innerText= await ParseDate(Post)
     ProfileName.innerText= "JOSH"
     PostID.innerText= Post.id;
     PostCard.className = "PostCard"
+
+
     const TextDisplay = document.createElement("p")
     TextDisplay.innerText= Post.Post_Text
     PostCard!.appendChild(TextDisplay)
     PostCard!.prepend(ProfileName)
-    PostCard!.appendChild(DateText)
     PostCard!.appendChild(PostID)
-    const NEWPostCard = getRemoveBTN(PostCard)
-    PostCon!.prepend(NEWPostCard)
+    const PostCard1 = getRemoveBTN(PostCard)
+    const PostCard2 = getCommentBTN(PostCard)
+    PostCard!.appendChild(DateText)
+    PostCon!.prepend(PostCard2)
 }
+
+
 async function DisplayImages(Post) {
     const PostCon = document.getElementById("PostContainer")
     const PostCard = document.createElement("div")
     const ProfileName = document.createElement("h1")
     const DateText = document.createElement("h4")
+    const PostID = document.createElement("h2")
+
+
+
+    PostID.innerText= Post.id;
     DateText.innerText= await ParseDate(Post)
     ProfileName.innerText= "JOSH"
     PostCard.className = "PostCard"
     const imageDisplay = document.createElement("img")
     imageDisplay.src = Post.Images
+
+
+
+
     PostCard!.prepend(imageDisplay)
     PostCard!.prepend(ProfileName)
+    PostCard!.appendChild(PostID)
+    const NEWPostCard = getRemoveBTN(PostCard)
     PostCard!.appendChild(DateText)
-    PostCon!.prepend(PostCard)
+    PostCon!.prepend(NEWPostCard)
 }
 function getRemoveBTN(PostCard) {
    const RemoveBTN = document.createElement("button")
-    RemoveBTN.className = "PostCard"
+    RemoveBTN.className = "RemoveBTN"
     RemoveBTN.innerText= "Remove"
     RemoveBTN.onclick = () => removeCard(PostCard);
     PostCard!.appendChild(RemoveBTN)
     return PostCard
 }
+function getCommentBTN(PostCard1) {
+    const CommentBTN = document.createElement("button")
+    CommentBTN.className = "CommentBTN"
+    CommentBTN.innerText= "Comment"
+    CommentBTN.onclick = () => CommentPage(PostCard1)
+    PostCard1!.appendChild(CommentBTN)
+    return PostCard1
+}
+
+function CommentPage(PostCard1){
+    const PostID = PostCard1.querySelector("h2")
+   window.location.href = `/posts?id=${PostID.innerText}`
+}
+// async function RetrievePostPage(id : string) {
+//     const searchParams = useSearchParams();
+//     const id = searchParams.get("id")
+//     const {data: post } = await supabase.from("Posts").select().eq('id', id)
+//     DisplayPostPage(post?.[0])
+// }
+// function DisplayPostPage(post) {
+//     if(post.Images && post.Post_Text) {
+//         DisplayPost(post)
+//     } else if (post.Images) {
+//         DisplayImages(post)
+//     } else if (post.Post_Text) {
+//         DisplayText(post)
+//     } else {
+//         alert("There are somehow 0 posts")
+//     }
+//
+// }
+
+
 async function removeCard(PostCard) {
     const key = process.env.NEXT_PUBLIC_MY_SECRET_KEY
     const PostCon = document.getElementById("PostContainer")

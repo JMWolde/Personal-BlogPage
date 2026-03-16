@@ -1,6 +1,6 @@
 "use client"
 import { useEffect } from "react";
-import "./globals.css";
+import "./css/globals.css";
 
 import type { ReactNode } from "react";
 import BgVideo from "../components/bgvideo";

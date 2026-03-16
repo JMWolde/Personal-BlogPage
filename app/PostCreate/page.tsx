@@ -1,6 +1,6 @@
 "use client"
-import "../globals.css";
-import "../card.css";
+import "../css/globals.css";
+import "../css/card.css";
 import Card from "@/components/Card";
 // import TextPost from "@/components/TextBox";
 import {useState} from "react";
@@ -12,16 +12,6 @@ export default function CreatePage() {
     return (
         <main>
 
-            {/*<div className="PostBox">*/}
-            {/*    <Card>*/}
-            {/*        /!*<textarea placeholder={"Type here nigga"} onChange={e => setText(e.target.value)} id="TextPost"></textarea>*!/*/}
-            {/*        /!*<textarea placeholder={"Write Here"} id="TextBox.tsx"></textarea>*!/*/}
-            {/*        <input type="file" multiple onChange={e => e.target.files && showImages(e.target.files)}/>*/}
-            {/*        <div id="preview"></div>*/}
-            {/*<div id = "PostCard"></div>*/}
-            {/*<Card></Card>*/}
-            {/*    </Card>*/}
-            {/*    <TextPost/>*/}
             <div id= "PostContainer"></div>
 
 
@@ -50,10 +40,6 @@ async function handleImageUpload(files: FileList) {
             .getPublicUrl(`images/${file.name}`)
         const imageURL = urlData.publicUrl
         await supabase.from("Posts").insert({ Images: imageURL })
-        await supabase.from("Posts").insert({ Images: imageURL })
-
-
-
         const { data : PostImage } = await supabase
             .from("Posts")
             .select("Images")
@@ -132,12 +118,6 @@ const TextDisplay = document.createElement("p")
 
 
 async function DisplayText(Post_Text: string) {
-    // // const preview = document.getElementById("preview")
-    // const FinalPostCard = document.createElement("Card");
-    // const FinalPostText = document.createElement("p")
-    // FinalPostText.innerText = Post_Text
-    // FinalPostCard!.appendChild(FinalPostText)
-    // // preview!.appendChild(FinalPostText);
     const PostCon = document.getElementById("PostContainer") // post container
     const PostCard = document.createElement("div") // Post individual
     PostCard.className = "PostCard"
@@ -152,12 +132,6 @@ async function DisplayText(Post_Text: string) {
 
 
 async function DisplayImages(Images : string) {
-    // // const preview = document.getElementById("preview");
-    // const FinalPostCard = document.createElement("Card");
-    //     const img = document.createElement("img");
-    //     img.src = Images;
-    // FinalPostCard!.appendChild(img)
-    //     // preview!.appendChild(img);
     const PostCard = document.createElement("div")
     PostCard.className = "PostCard"
     document.body.appendChild(PostCard)
@@ -184,7 +158,7 @@ function PostBox() {
         } else if (text) {
             handleTextUpload(text)
         } else {
-            // alert("You fucked up nigga")
+            alert("what?")
         }
 
 
@@ -208,9 +182,8 @@ function PostBox() {
             <input type="file" multiple onChange={e => {
                 e.target.files && showImages(e.target.files)
                 e.target.files && setImage(e.target.files)
-                // e.target.files && handleImageUpload(e.target.files)
             }}/>
-            <textarea placeholder={"Type here nigga"} onChange={e => {
+            <textarea placeholder={"Type here"} onChange={e => {
                 setText(e.target.value)
 
             }}

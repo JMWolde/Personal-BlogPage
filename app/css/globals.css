@@ -1,10 +1,4 @@
-@import "tailwindcss";
-@font-face {
-  font-family: 'Comico-Regular';
-  src :url("../components/Comico-Regular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
+@import "../../node_modules/tailwindcss";
 
 :root {
   --background: #ffffff;

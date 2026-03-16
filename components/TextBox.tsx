@@ -8,7 +8,7 @@ export default function TextBox() {
 
     return (
         <div>
-            <textarea placeholder= {"Type here nigga"}onChange={e => setText(e.target.value)} id="TextPost"></textarea>
+            <textarea placeholder= {""}onChange={e => setText(e.target.value)} id="TextPost"></textarea>
         </div>
     )
 
