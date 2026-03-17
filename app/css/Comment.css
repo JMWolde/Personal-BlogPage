@@ -1,0 +1,44 @@
+.CommentCard {
+    width : 1000px;
+    min-height: 300px;
+    height: auto;
+    --drop-shadow-md: ;
+    /*background-color: azure;*/
+    background: rgba(0, 127, 255, 0.4);
+    backdrop-filter: blur(10px);
+    border: 4px solid rgba(0, 0, 0, 0.2);
+}
+.CommentCard h4 {
+    font-family: 'Minecraft';
+    text-shadow: 2px 2px 8px black;
+    margin-top: 180px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    font-size: 20px;
+    font-weight: normal;
+    color: azure;
+    text-indent: .5em;
+}
+.CommentCard p {
+    font-family: 'Minecraft';
+    text-shadow: 2px 2px 8px black;
+    margin-left: 10px;
+    margin-top: 20px;
+    letter-spacing: 2px;
+    --drop-shadow-md: ;
+    font-size: 35px;
+    color: white;
+}
+.CommentCard h2 {
+    opacity: 0;
+}
+.CommentCard h1 {
+    font-family: 'Minecraft';
+    text-shadow: 2px 2px 8px black;
+    margin-top: 20px;
+    letter-spacing: 2px;
+    font-size: 50px;
+    font-weight: normal;
+    color: azure;
+    text-indent: 1em;
+}

@@ -1,0 +1,40 @@
+@import "../../node_modules/tailwindcss";
+@font-face {
+    font-family: 'Comico-Regular';
+    src :url("/fonts/Comico-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.CardContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+}
+#Profile {
+    width: 700px;
+}
+.PostBox {
+}
+.CreatePost {
+    width: 500px;
+    height: 500px;
+}
+.preview {
+    width : 250px;
+    height : 250px;
+    /*background-color: azure;*/
+    background: rgba(0, 127, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.preview img {
+    width : 250px;
+    height : 250px;
+}
+.preview p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: black;
+}

@@ -1,0 +1,63 @@
+#PostContainer {
+    display: flex;
+    margin-top: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    gap: 30px;
+    min-height: 100vh
+
+}
+.PostCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: space-between;
+    width : 500px;
+    min-height : 250px;
+    /*background-color: azure;*/
+    background: rgba(0, 127, 255, 0.4);
+    backdrop-filter: blur(10px);
+    border: 4px solid rgba(0, 0, 0, 0.2);
+}
+/*Post Date*/
+.PostCard h4 {
+    font-family: 'Minecraft';
+    text-shadow: 2px 2px 8px black;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    font-size: 10px;
+    font-weight: normal;
+    color: azure;
+    text-indent: .5em;
+}
+/*Post ID*/
+.PostCard h2 {
+    opacity: 0;
+}
+.PostCard img {
+    width : 150px;
+    height : 150px;
+}
+/*Post Text*/
+.PostCard p {
+    font-family: 'Minecraft';
+    text-shadow: 2px 2px 8px black;
+    margin-left: 10px;
+    letter-spacing: 2px;
+    --drop-shadow-md: ;
+    font-size: 15px;
+    color: white;
+}
+/*Post Header*/
+.PostCard h1 {
+    font-family: 'Minecraft';
+    text-shadow: 2px 2px 8px black;
+    letter-spacing: 2px;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: normal;
+    color: azure;
+    text-indent: .5em;
+}
