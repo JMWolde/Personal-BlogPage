@@ -57,7 +57,8 @@ function getButtons(PostCard) {
 function Comment(PostCard) {
     const CommentBox = document.createElement("textarea")
     const SubmitBTN = document.createElement("button")
-    SubmitBTN.className = "PageSubmitBTN"
+    SubmitBTN.id = "PageSubmitBTN"
+    SubmitBTN.innerText= "Submit"
     SubmitBTN.onclick = () => SaveComment(PostCard, CommentBox)
     CommentBox.className = "PageCard"
     CommentBox.placeholder = "Type Here"

@@ -1,7 +1,14 @@
+@media (max-width: 768px){
+    #PageContainer {
+        width: 100% !important;
+    }
+    #PageContainer * {
+        max-width : 100%;
+    }
+}
 #PageContainer {
     display: flex;
     margin-top: 140px;
-    margin-left: 20px;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
@@ -21,7 +28,6 @@
 .PageCard textarea {
     width : 800px;
     min-height: 200px;
-    margin-left: 10px;
     height: auto;
     --drop-shadow-md: ;
     /*background-color: azure;*/

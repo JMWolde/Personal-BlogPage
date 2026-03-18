@@ -1,3 +1,10 @@
+@media (max-width: 768px){
+    #PostContainer {
+    }
+    #PostContainer * {
+        max-width : 100%;
+    }
+}
 #PostContainer {
     display: flex;
     margin-top: 10px;
