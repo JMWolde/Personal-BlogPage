@@ -123,7 +123,7 @@ async function DisplayText(Post) {
     ProfileName.innerText= "JOSH"
     PostID.innerText= Post.id;
     PostCard.className = "PostCard"
-
+// comment
 
     const TextDisplay = document.createElement("p")
     TextDisplay.innerText= Post.Post_Text
