@@ -8,13 +8,10 @@ import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat"
 dayjs.extend(customParseFormat)
 import Card from "../components/Card";
-import { useSearchParams } from "next/navigation";
 import {use, useEffect, useState} from "react";
 import {useRouter} from "next/navigation";
 import {supabase} from "@/lib/supabase";
 export default function HomePage() {
-    const searchParams = useSearchParams();
-    const value = searchParams.get("key");
   return (
       <main>
           <div id="MainContainer">

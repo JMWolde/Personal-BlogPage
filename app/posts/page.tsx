@@ -1,4 +1,5 @@
 "use client"
+import {Suspense} from "react";
 import {useSearchParams} from "next/navigation";
 import {supabase} from "@/lib/supabase";
 import {useEffect} from "react";
@@ -9,7 +10,7 @@ import "../css/Button.css";
 import "../css/Comment.css";
 import customParseFormat from "dayjs/plugin/customParseFormat"
 dayjs.extend(customParseFormat)
-export default function PostPage() {
+function PostPageContent() {
     const searchParams = useSearchParams();
     const id = searchParams.get("id")
 
@@ -17,7 +18,16 @@ export default function PostPage() {
         if (id)
             RetrievePostPage(id)
     }, [id]);
-    return <div id = "PageContainer"></div>
+
+    return <div id="PageContainer"></div>
+}
+
+export default function PostPage() {
+    return (
+        <Suspense>
+            <PostPageContent />
+        </Suspense>
+    )
 }
 function DisplayAllComments(PostCardNEW, comments){
     for (const comment of comments){
