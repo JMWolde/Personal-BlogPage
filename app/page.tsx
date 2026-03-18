@@ -12,8 +12,6 @@ import { useSearchParams } from "next/navigation";
 import {use, useEffect, useState} from "react";
 import {useRouter} from "next/navigation";
 import {supabase} from "@/lib/supabase";
-import {Butterfly_Kids} from "next/dist/compiled/@next/font/dist/google";
-import * as sea from "node:sea";
 export default function HomePage() {
     const searchParams = useSearchParams();
     const value = searchParams.get("key");
