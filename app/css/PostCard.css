@@ -44,10 +44,10 @@
     opacity: 0;
 }
 .PostCard img {
-    width : 150px;
-    height : 150px;
+    max-width: 80%;
+    min-width : 150px;
+    height: auto;
 }
-/*Post Text*/
 .PostCard p {
     font-family: 'Minecraft';
     text-shadow: 2px 2px 8px black;

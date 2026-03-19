@@ -66,143 +66,16 @@ async function ParseDate(Post){
 
 // * DISPLAYING POSTS *
 
-
 async function DisplayAllPosts(Post) {
     for (const post of Post) {
-        if(post.Images && post.Post_Text) {
-            DisplayPost(post)
-        } else if (post.Images) {
-            DisplayImages(post)
-        } else if (post.Post_Text) {
-            DisplayText(post)
-        } else {
-            alert("There are somehow 0 posts")
-        }
+       buildPostCard(post)
     }
-}
-async function DisplayPost(Post){
-    const PostCon = document.getElementById("PostContainer")
-    const PostCard = document.createElement("div")
-    const ProfileName = document.createElement("h1")
-    const DateText = document.createElement("h4")
-    const PostID = document.createElement("h2")
-
-
-
-    PostID.innerText= Post.id;
-    DateText.innerText= await ParseDate(Post)
-    PostCard.className = "PostCard"
-    ProfileName.innerText= "JOSH"
-
-
-    const TextDisplay = document.createElement("p")
-    const imageDisplay = document.createElement("img")
-
-
-    TextDisplay.innerText= Post.Post_Text
-    imageDisplay.src = Post.Images
-
-
-    PostCard!.appendChild(imageDisplay)
-    PostCard!.appendChild(TextDisplay)
-    PostCard!.prepend(ProfileName)
-    PostCard!.appendChild(PostID)
-    const NEWPostCard = getRemoveBTN(PostCard)
-    PostCard!.appendChild(DateText)
-    PostCon!.prepend(NEWPostCard)
-}
-
-async function DisplayText(Post) {
-    const PostCon = document.getElementById("PostContainer") // post container
-    const PostCard = document.createElement("div")// Post individual
-    const ProfileName = document.createElement("h1")
-    const DateText = document.createElement("h4")
-    const PostID = document.createElement("h2")
-
-    DateText.innerText= await ParseDate(Post)
-    ProfileName.innerText= "JOSH"
-    PostID.innerText= Post.id;
-    PostCard.className = "PostCard"
-// comment
-
-    const TextDisplay = document.createElement("p")
-    TextDisplay.innerText= Post.Post_Text
-    PostCard!.appendChild(TextDisplay)
-    PostCard!.prepend(ProfileName)
-    PostCard!.appendChild(PostID)
-    const PostCard1 = getRemoveBTN(PostCard)
-    const PostCard2 = getCommentBTN(PostCard)
-    PostCard!.appendChild(DateText)
-    PostCon!.prepend(PostCard2)
-}
-
-
-async function DisplayImages(Post) {
-    const PostCon = document.getElementById("PostContainer")
-    const PostCard = document.createElement("div")
-    const ProfileName = document.createElement("h1")
-    const DateText = document.createElement("h4")
-    const PostID = document.createElement("h2")
-
-
-
-    PostID.innerText= Post.id;
-    DateText.innerText= await ParseDate(Post)
-    ProfileName.innerText= "JOSH"
-    PostCard.className = "PostCard"
-    const imageDisplay = document.createElement("img")
-    imageDisplay.src = Post.Images
-
-
-
-
-    PostCard!.prepend(imageDisplay)
-    PostCard!.prepend(ProfileName)
-    PostCard!.appendChild(PostID)
-    const NEWPostCard = getRemoveBTN(PostCard)
-    PostCard!.appendChild(DateText)
-    PostCon!.prepend(NEWPostCard)
-}
-function getRemoveBTN(PostCard) {
-   const RemoveBTN = document.createElement("button")
-    RemoveBTN.className = "RemoveBTN"
-    RemoveBTN.innerText= "Remove"
-    RemoveBTN.onclick = () => removeCard(PostCard);
-    PostCard!.appendChild(RemoveBTN)
-    return PostCard
-}
-function getCommentBTN(PostCard1) {
-    const CommentBTN = document.createElement("button")
-    CommentBTN.className = "CommentBTN"
-    CommentBTN.innerText= "Comment"
-    CommentBTN.onclick = () => CommentPage(PostCard1)
-    PostCard1!.appendChild(CommentBTN)
-    return PostCard1
 }
 
 function CommentPage(PostCard1){
     const PostID = PostCard1.querySelector("h2")
    window.location.href = `/posts?id=${PostID.innerText}`
 }
-// async function RetrievePostPage(id : string) {
-//     const searchParams = useSearchParams();
-//     const id = searchParams.get("id")
-//     const {data: post } = await supabase.from("Posts").select().eq('id', id)
-//     DisplayPostPage(post?.[0])
-// }
-// function DisplayPostPage(post) {
-//     if(post.Images && post.Post_Text) {
-//         DisplayPost(post)
-//     } else if (post.Images) {
-//         DisplayImages(post)
-//     } else if (post.Post_Text) {
-//         DisplayText(post)
-//     } else {
-//         alert("There are somehow 0 posts")
-//     }
-//
-// }
-
 
 async function removeCard(PostCard) {
     const key = process.env.NEXT_PUBLIC_MY_SECRET_KEY
@@ -217,3 +90,50 @@ async function removeCard(PostCard) {
     }
 }
 
+async function buildPostCard(Post){
+    if(Post.Images || Post.Post_Text) {
+        const PostCon = document.getElementById("PostContainer")
+        const PostCard = document.createElement("div")
+        const ProfileName = document.createElement("h1")
+        const DateText = document.createElement("h4")
+        const PostID = document.createElement("h2")
+
+
+        PostID.innerText = Post.id;
+        DateText.innerText = await ParseDate(Post)
+        PostCard.className = "PostCard"
+        ProfileName.innerText = "JOSH"
+
+        if (Post.Post_Text) {
+            const TextDisplay = document.createElement("p") // text post
+            TextDisplay.innerText = Post.Post_Text
+            PostCard!.appendChild(TextDisplay)
+        }
+        if (Post.Images) {
+            const imageDisplay = document.createElement("img") // image post
+            imageDisplay.src = Post.Images
+            PostCard!.appendChild(imageDisplay)
+        }
+        PostCard!.prepend(ProfileName)
+        PostCard!.appendChild(PostID)
+        const PostCardNEW = getButtons(PostCard)
+        PostCardNEW!.appendChild(DateText)
+        PostCon!.prepend(PostCardNEW)
+    } else {
+        alert("There is nothing")
+    }
+}
+function getButtons(PostCard) {
+    const RemoveBTN = document.createElement("button")
+    RemoveBTN.className = "RemoveBTN"
+    RemoveBTN.innerText= "Remove"
+    RemoveBTN.onclick = () => removeCard(PostCard);
+    const CommentBTN = document.createElement("button")
+    CommentBTN.className = "CommentBTN"
+    CommentBTN.innerText= "Comment"
+    CommentBTN.onclick = () => CommentPage(PostCard)
+
+    PostCard!.appendChild(RemoveBTN)
+    PostCard!.appendChild(CommentBTN)
+    return PostCard
+}
