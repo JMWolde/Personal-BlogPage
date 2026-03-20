@@ -8,9 +8,10 @@ import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat"
 dayjs.extend(customParseFormat)
 import Card from "../components/Card";
-import {use, useEffect, useState} from "react";
+import {createElement, use, useEffect, useState} from "react";
 import {useRouter} from "next/navigation";
 import {supabase} from "@/lib/supabase";
+import {resolveUrl} from "next/dist/lib/metadata/resolvers/resolve-url";
 export default function HomePage() {
   return (
       <main>
@@ -68,7 +69,7 @@ async function ParseDate(Post){
 
 async function DisplayAllPosts(Post) {
     for (const post of Post) {
-       buildPostCard(post)
+       await buildPostCard(post)
     }
 }
 
@@ -97,6 +98,9 @@ async function buildPostCard(Post){
         const ProfileName = document.createElement("h1")
         const DateText = document.createElement("h4")
         const PostID = document.createElement("h2")
+        const CommentCounter = document.createElement("button")
+        CommentCounter.id = "CommentCounterBTN"
+        CommentCounter.onclick = () => CommentPage(PostCard)
 
 
         PostID.innerText = Post.id;
@@ -118,6 +122,8 @@ async function buildPostCard(Post){
         PostCard!.appendChild(PostID)
         const PostCardNEW = getButtons(PostCard)
         PostCardNEW!.appendChild(DateText)
+        CommentCounter.innerText = await countComments(PostCardNEW)
+        PostCardNEW!.appendChild(CommentCounter)
         PostCon!.prepend(PostCardNEW)
     } else {
         alert("There is nothing")
@@ -136,4 +142,14 @@ function getButtons(PostCard) {
     PostCard!.appendChild(RemoveBTN)
     PostCard!.appendChild(CommentBTN)
     return PostCard
+}
+async function countComments(item) {
+    const PostID = item.querySelector("h2")
+    const CommentCounter = document.createElement("button")
+    const {count, error} = await supabase
+    .from("Comments")
+        .select('*', {count: 'exact', head: true})
+        .eq('post_id', PostID.innerText)
+    return `Comments(${count})`
+
 }

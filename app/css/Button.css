@@ -19,12 +19,13 @@
     line-height: normal;
     width: fit-content;
     align-self: flex-start;
+    cursor: pointer;
 }
 .CommentBTN {
     font-family: 'Minecraft';
     text-shadow: 2px 2px 8px black;
     letter-spacing: 2px;
-    margin-top: 0px;
+    margin-top: -23px;
     margin-bottom: 0px;
     margin-left: 120px;
     font-size: 10px;
@@ -41,6 +42,7 @@
     line-height: normal;
     width: fit-content;
     align-self: flex-start;
+    cursor: pointer;
 }
 /* Page Buttons */
 .PageRemoveBTN {
@@ -63,6 +65,7 @@
     line-height: normal;
     width: fit-content;
     align-self: flex-start;
+    cursor: pointer;
 }
 .PageCommentBTN {
     font-family: 'Minecraft';
@@ -84,6 +87,7 @@
     line-height: normal;
     width: fit-content;
     align-self: flex-start;
+    cursor: pointer;
 }
 #PageSubmitBTN {
     font-family: 'Minecraft';
@@ -105,4 +109,16 @@
     line-height: normal;
     width: fit-content;
     align-self: flex-start;
+    cursor: pointer;
+}
+#CommentCounterBTN {
+    font-family: 'Minecraft';
+    text-shadow: 2px 2px 8px black;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    font-size: 10px;
+    font-weight: normal;
+    color: azure;
+    text-indent: 1.5em;
+    cursor: pointer;
 }
