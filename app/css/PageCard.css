@@ -15,6 +15,9 @@
     width: 100%;
     gap: 10px;
 }
+.PageCard button:hover {
+    transform: scale(1.2);
+}
 .PageCard {
     width : 1000px;
     min-height: 600px;

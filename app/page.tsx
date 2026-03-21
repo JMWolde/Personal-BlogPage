@@ -20,7 +20,7 @@ export default function HomePage() {
                   <h1 >JOSH'S CREATIVE DOMAIN</h1>
                   <p>
                       Welcome Welcome! This is my blog for all my creative/cs ideas, projects, work, thoughts WHATEVER.
-                      Everything here has been coded by yours truly so I hope you enjoy what I've made here!</p>
+                      Everything here has been coded by yours truly and still VERY EARLY in development so I hope you enjoy what I've made here!</p>
               </div>
           </div>
           <RetrievePosts/>

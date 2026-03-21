@@ -5,6 +5,9 @@
         max-width : 100%;
     }
 }
+.MainCard button:hover {
+    transform: scale(1.2);
+}
 #MainContainer {
     display: flex;
     margin-top: 140px;
