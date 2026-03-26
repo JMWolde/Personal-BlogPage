@@ -9,8 +9,10 @@
     transform: scale(1.2);
 }
 #MainContainer {
+    position: fixed;
     display: flex;
     margin-top: 140px;
+    margin-left: 700px;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
@@ -19,7 +21,7 @@
 }
 
 .MainCard {
-    width : 1000px;
+    width : 800px;
     min-height: 600px;
     height: auto;
     --drop-shadow-md: ;
@@ -34,7 +36,7 @@
     margin-top: 20px;
     letter-spacing: 2px;
     --drop-shadow-md: ;
-    font-size: 35px;
+    font-size: 25px;
     color: white;
 }
 .MainCard h1 {
@@ -42,7 +44,7 @@
     text-shadow: 2px 2px 8px black;
     margin-top: 20px;
     letter-spacing: 2px;
-    font-size: 50px;
+    font-size: 30px;
     font-weight: normal;
     color: azure;
     text-indent: 1em;
