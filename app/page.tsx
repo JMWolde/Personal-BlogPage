@@ -11,7 +11,7 @@ import Card from "../components/Card";
 import {createElement, use, useEffect, useState} from "react";
 import {useRouter} from "next/navigation";
 import {supabase} from "@/lib/supabase";
-import MainCard from "./components/MainCard";
+import MainCard from "../components/MainCard";
 import {resolveUrl} from "next/dist/lib/metadata/resolvers/resolve-url";
 export default function HomePage() {
   return (
