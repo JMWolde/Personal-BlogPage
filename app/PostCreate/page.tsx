@@ -1,7 +1,6 @@
 "use client"
 import "../css/globals.css";
 import "../css/card.css";
-import Card from "@/components/Card";
 // import TextPost from "@/components/TextBox";
 import {useState} from "react";
 import {useRouter} from "next/navigation";

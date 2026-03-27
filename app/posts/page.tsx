@@ -117,37 +117,37 @@ function buildCommentCard(PostCard, comment){
     commentCard!.appendChild(DateText)
     PostCard!.appendChild(commentCard)
 }
-async function buildPostCard(Post, comments){
-    if(Post.Images || Post.Post_Text) {
-        const PostCon = document.getElementById("PageContainer")
-        const PostCard = document.createElement("div")
-        const ProfileName = document.createElement("h1")
-        const DateText = document.createElement("h4")
-        const PostID = document.createElement("h2")
-
-
-        PostID.innerText = Post.id;
-        DateText.innerText = await ParseDate(Post)
-        PostCard.className = "PageCard"
-        ProfileName.innerText = "JOSH"
-
-        if (Post.Post_Text) {
-            const TextDisplay = document.createElement("p") // text post
-            TextDisplay.innerText = Post.Post_Text
-            PostCard!.appendChild(TextDisplay)
-        }
-        if (Post.Images) {
-            const imageDisplay = document.createElement("img") // image post
-            imageDisplay.src = Post.Images
-            PostCard!.appendChild(imageDisplay)
-        }
-        PostCard!.prepend(ProfileName)
-        PostCard!.appendChild(PostID)
-        const PostCardNEW = getButtons(PostCard)
-        PostCardNEW!.appendChild(DateText)
-        const FinalPostCard = await DisplayAllComments(PostCardNEW, comments)
-        PostCon!.prepend(FinalPostCard)
-    } else {
-        alert("There is nothing")
-    }
-}
+// async function buildPostCard(Post, comments){
+//     if(Post.Images || Post.Post_Text) {
+//         const PostCon = document.getElementById("PageContainer")
+//         const PostCard = document.createElement("div")
+//         const ProfileName = document.createElement("h1")
+//         const DateText = document.createElement("h4")
+//         const PostID = document.createElement("h2")
+//
+//
+//         PostID.innerText = Post.id;
+//         DateText.innerText = await ParseDate(Post)
+//         PostCard.className = "PageCard"
+//         ProfileName.innerText = "JOSH"
+//
+//         if (Post.Post_Text) {
+//             const TextDisplay = document.createElement("p") // text post
+//             TextDisplay.innerText = Post.Post_Text
+//             PostCard!.appendChild(TextDisplay)
+//         }
+//         if (Post.Images) {
+//             const imageDisplay = document.createElement("img") // image post
+//             imageDisplay.src = Post.Images
+//             PostCard!.appendChild(imageDisplay)
+//         }
+//         PostCard!.prepend(ProfileName)
+//         PostCard!.appendChild(PostID)
+//         const PostCardNEW = getButtons(PostCard)
+//         PostCardNEW!.appendChild(DateText)
+//         const FinalPostCard = await DisplayAllComments(PostCardNEW, comments)
+//         PostCon!.prepend(FinalPostCard)
+//     } else {
+//         alert("There is nothing")
+//     }
+// }

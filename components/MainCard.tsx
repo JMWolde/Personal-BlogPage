@@ -1,5 +1,9 @@
+import {supabase} from "@/lib/supabase";
+import {useEffect} from "react";
 
 export default function MainCard(){
+
+
     return (
         <div id="MainContainer">
             <div className="MainCard">
