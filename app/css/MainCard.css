@@ -12,17 +12,16 @@
     position: fixed;
     display: flex;
     margin-top: 140px;
-    margin-left: 700px;
+    margin-left: 650px;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
     max-width: 100%;
     gap: 10px;
 }
 
 .MainCard {
     width : 800px;
-    min-height: 600px;
+    min-height: 300px;
     height: auto;
     --drop-shadow-md: ;
     background: rgba(0, 127, 255, 0.4);
@@ -31,7 +30,7 @@
 }
 .MainCard p {
     font-family: 'Minecraft';
-    text-shadow: 2px 2px 8px black;
+    text-shadow: 2px 2px 4px black;
     margin-left: 10px;
     margin-top: 20px;
     letter-spacing: 2px;
@@ -41,7 +40,7 @@
 }
 .MainCard h1 {
     font-family: 'Minecraft';
-    text-shadow: 2px 2px 8px black;
+    text-shadow: 2px 2px 4px black;
     margin-top: 20px;
     letter-spacing: 2px;
     font-size: 30px;

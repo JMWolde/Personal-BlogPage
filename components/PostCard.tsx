@@ -2,9 +2,11 @@ import {use, useEffect, useState} from "react";
 import {supabase} from "@/lib/supabase";
 import { PostType } from "./types";
 import dayjs from "dayjs";
+
 export default function PostCard(){
 return <GetPosts/>
 }
+
      function GetPosts() {
 const [posts, setPosts] = useState<PostType[] | null>(null);
         useEffect(() => {
@@ -66,9 +68,9 @@ async function commentCount(post) {
             {post.Images && <img src={post.Images} alt="post" />}
             <h2>{post.id}</h2>
             <h4>{post.created_at?.split("T")[0]}</h4>
-            <button className="RemoveBTN" onClick={handleRemove}>Remove</button>
-            <button className="CommentBTN" onClick={handleComment}>Comment</button>
-            <button id="CommentCounterBTN" onClick={handleComment}>
+            <button className="RemoveBTN" onClick={() => handleRemove(post)}>Remove</button>
+            <button className="CommentBTN" onClick={() => handleComment(post)}>Comment</button>
+            <button id="CommentCounterBTN" onClick={() => handleComment(post)}>
                 Comments({count})
             </button>
         </div>
