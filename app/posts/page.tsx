@@ -10,7 +10,15 @@ import "../css/Button.css";
 import "../css/Comment.css";
 import customParseFormat from "dayjs/plugin/customParseFormat"
 import {PostType} from "@/components/types";
-export default function PostPageContent() {
+
+export default function PostsPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <PostPageContent />
+        </Suspense>
+    )
+}
+function PostPageContent() {
     const searchParams = useSearchParams();
     const id = searchParams.get("id")
         return <GetPost PostID={id}/>
