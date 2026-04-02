@@ -10,24 +10,33 @@
 }
 #MainContainer {
     position: fixed;
-    display: flex;
-    margin-top: 140px;
-    margin-left: 650px;
     flex-direction: column;
+    display: flex;
+    margin-top: 100px;
+    margin-left: 650px;
     align-items: center;
     max-width: 100%;
     gap: 10px;
 }
+.RowContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
 
 .MainCard {
-    width : 800px;
+    display: flex;
+    flex-direction: column;
+    width : 700px;
     min-height: 300px;
-    height: auto;
+    height: 500px;
     --drop-shadow-md: ;
     background: rgba(0, 127, 255, 0.4);
     backdrop-filter: blur(10px);
     border: 4px solid rgba(0, 0, 0, 0.2);
 }
+
 .MainCard p {
     font-family: 'Minecraft';
     text-shadow: 2px 2px 4px black;
@@ -37,6 +46,13 @@
     --drop-shadow-md: ;
     font-size: 25px;
     color: white;
+}
+.TopCard {
+    width : 950px;
+    min-height: 200px;
+    background: rgba(0, 127, 255, 0.4);
+    backdrop-filter: blur(10px);
+    border: 4px solid rgba(0, 0, 0, 0.2);
 }
 .MainCard h1 {
     font-family: 'Minecraft';
@@ -51,4 +67,50 @@
 .MainCard img {
     width : 150px;
     height : 150px;
+}
+.SideCard {
+    display: flex;
+    flex-direction: column;
+    width : 250px;
+    min-height: 300px;
+    height: 500px;
+    background: rgba(0, 127, 255, 0.4);
+    backdrop-filter: blur(10px);
+    border: 4px solid rgba(0, 0, 0, 0.2);
+}
+.SideCard button:hover {
+    transform: scale(1.2);
+}
+.SideCard h1 {
+    font-family: 'Minecraft';
+    text-shadow: 2px 2px 4px black;
+    margin-top: 20px;
+    letter-spacing: 2px;
+    font-size: 30px;
+    font-weight: normal;
+    color: azure;
+    text-indent: 0.7em;
+}
+.SideCard p {
+    font-family: 'Minecraft';
+    text-shadow: 2px 2px 4px black;
+    margin-left: 10px;
+    margin-top: 20px;
+    letter-spacing: 2px;
+    --drop-shadow-md: ;
+    font-size: 25px;
+    color: white;
+}
+.SideCard li {
+    font-family: 'Minecraft';
+    text-shadow: 2px 2px 4px black;
+    margin-left: 10px;
+    margin-top: 20px;
+    letter-spacing: 2px;
+    --drop-shadow-md: ;
+    font-size: 15px;
+    color: white;
+}
+.SideCard li:hover {
+    text-decoration: underline;
 }

@@ -38,7 +38,7 @@ function GetPost(props) {
 
     return (
         <div id="PageContainer">
-            {post && <BuildPostCard post={post} />}
+            {post && <BuildPostCard post={post!} comments={comments!} />}
         </div>
     // <div id="CommentContainer">
     //     <BuildCommentCard comments={comments}/>
@@ -56,9 +56,7 @@ async function handleRemove(post) {
         alert("NAH NAH")
     }
 }
-function handleComment(post){
-    window.location.href = `/posts?id=${post.id}`
-}
+
 // async function commentCount(post) {
 //     const {count, error} = await supabase
 //         .from("Comments")
@@ -66,9 +64,32 @@ function handleComment(post){
 //         .eq('post_id', post.id)
 //     return count
 // }
-function BuildPostCard({post}){
-    const [count, setCount] = useState(0);
+function BuildPostCard({ post, comments }: { post: PostType; comments: PostType[] }){
+    const [showComment, setShowComment] = useState(false);
+    function handleComment(post){
+        return (
+            <div className="CreateComment">
+                <textarea id="CommentBox">Write Comment...</textarea>
+                <button id="PageSubmitBTN" onClick={() => SaveComment(document.getElementById("CommentBox"))}>Submit</button>
+            </div>
 
+        )
+    }
+    async function SaveComment(CommentBox) {
+        const { data, error } = await supabase.from("Comments").insert({ comment_text: CommentBox.value, post_id: post.id })
+        const {data: comments} = await supabase.from("Comments").select().eq('post_id', post.id)
+        alert("Comment Posted!")
+    }
+    async function FetchComments(comments){
+        comments.map((comment) => {
+
+            return (
+                <div className="CommentCard">
+                    <p>{comment.comment_text}</p>
+                </div>
+            )
+        });
+    }
     return (
         <div className="PageCard">
             <h1>JOSH</h1>

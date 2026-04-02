@@ -10,9 +10,9 @@
     color: azure;
     text-indent: .3em;
 
-    background: rgba(0, 127, 255, 0.1);
+    background: rgba(0, 127, 255, 0.4);
     backdrop-filter: blur(50px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(0, 0, 0, 0.2);
     padding: 4px 8px;
 
     line-height: normal;
@@ -24,7 +24,7 @@
     font-family: 'Minecraft';
     text-shadow: 2px 2px 8px black;
     letter-spacing: 2px;
-    margin-top: -22px;
+    margin-top: -25px;
     margin-bottom: 0px;
     margin-left: 120px;
     font-size: 10px;
@@ -33,9 +33,9 @@
     color: azure;
     text-indent: .3em;
 
-    background: rgba(0, 127, 255, 0.1);
+    background: rgba(0, 127, 255, 0.4);
     backdrop-filter: blur(50px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(0, 0, 0, 0.2);
     padding: 4px 8px;
 
     line-height: normal;

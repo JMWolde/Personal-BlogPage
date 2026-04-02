@@ -6,8 +6,6 @@ import {useSearchParams} from "next/navigation";
 export default function PageCard(PostID){
     return <GetPosts PostID = {PostID}></GetPosts>
 }
-
-
 function GetPosts(PostID) {
     return (
 <div id = "PageContainer">
@@ -18,8 +16,9 @@ function GetPosts(PostID) {
 async function CreatePost(PostID) {
     const {data: post } = await supabase.from("Posts").select().eq('id', PostID)
     const {data: comments} = await supabase.from("Comments").select().eq('post_id', PostID)
-    return BuildPostCard({post: post?.[0]})
-
+    return (
+        BuildPostCard({post: post?.[0]}, {comments})
+    )
 }
 async function handleRemove(post) {
     const key = process.env.NEXT_PUBLIC_MY_SECRET_KEY
@@ -31,9 +30,7 @@ async function handleRemove(post) {
         alert("NAH NAH")
     }
 }
-function handleComment(post){
-    window.location.href = `/posts?id=${post.id}`
-}
+
 async function commentCount(post) {
     const {count, error} = await supabase
         .from("Comments")
@@ -41,7 +38,30 @@ async function commentCount(post) {
         .eq('post_id', post.id)
     return count
 }
-function BuildPostCard({post}){
+function BuildPostCard({post}, {comments}){
+    function handleComment(post){
+        async function SaveComment(CommentBox) {
+            const { data, error } = await supabase.from("Comments").insert({ comment_text: CommentBox.value, post_id: post.id })
+            const {data: comments} = await supabase.from("Comments").select().eq('post_id', post.id)
+            alert("Comment Posted!")
+            FetchComments(comments)
+        }
+        async function FetchComments(comments){
+            for (const comment of comments) {
+                return (
+                    <div className="CommentCard">
+                        <p>{comment.comment_text}</p>
+                    </div>
+                )
+            }
+        }
+        return (
+            <div className="CreateComment">
+                <textarea>Write Comment...</textarea>
+                <button id="PageSubmitBTN" onClick="SaveComment">Submit</button>
+            </div>
+        )
+    }
     return (
         <div className="PostCard">
             <h1>JOSH</h1>
@@ -49,11 +69,11 @@ function BuildPostCard({post}){
             {post.Images && <img src={post.Images} alt="post" />}
             <h2>{post.id}</h2>
             <h4>{post.created_at?.split("T")[0]}</h4>
-            <button className="RemoveBTN" onClick={() => handleRemove(post)}>Remove</button>
-            <button className="CommentBTN" onClick={() => handleComment(post)}>Comment</button>
-            <button id="CommentCounterBTN" onClick={() => handleComment(post)}>
-                Comments({count})
-            </button>
+            <button className="PageRemoveBTN" onClick={() => handleRemove(post)}>Remove</button>
+            <button className="PageCommentBTN" onClick={() => handleComment(post)}>Comment</button>
+            {/*<button id="CommentCounterBTN" onClick={() => handleComment(post)}>*/}
+            {/*    Comments({count})*/}
+            {/*</button>*/}
         </div>
     )
 }

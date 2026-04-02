@@ -43,6 +43,26 @@
     backdrop-filter: blur(10px);
     border: 4px solid rgba(0, 0, 0, 0.2);
 }
+.CreateComment textarea {
+    width : 800px;
+    min-height: 200px;
+    height: auto;
+    --drop-shadow-md: ;
+    /*background-color: azure;*/
+    background: rgba(0, 127, 255, 0.4);
+    backdrop-filter: blur(10px);
+    border: 4px solid rgba(0, 0, 0, 0.2);
+}
+.CreateComment {
+    width : 1000px;
+    min-height: 300px;
+    height: auto;
+    --drop-shadow-md: ;
+    /*background-color: azure;*/
+    background: rgba(0, 127, 255, 0.4);
+    backdrop-filter: blur(10px);
+    border: 4px solid rgba(0, 0, 0, 0.2);
+}
 .PageCard h4 {
     font-family: 'Minecraft';
     text-shadow: 2px 2px 4px black;
