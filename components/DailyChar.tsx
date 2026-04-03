@@ -1,7 +1,7 @@
 
 
 
-export default function DailyItem(){
+export default function DailyChar(){
     const characters = [
         {
             id: 1,

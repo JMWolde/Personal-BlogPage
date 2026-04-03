@@ -14,8 +14,10 @@ import PostCard from "@/components/PostCard";
 export default function HomePage() {
     return (
         <main>
-            <MainCard/>
-            <PostCard/>
+            <div className= "Home-Container">
+                <PostCard/>
+                <MainCard/>
+            </div>
         </main>
     )
 }

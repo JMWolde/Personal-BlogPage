@@ -1,24 +1,26 @@
 import {supabase} from "@/lib/supabase";
 import {useEffect} from "react";
-import DailyItem from "@/components/DailyItem";
+import DailyChar from "@/components/DailyChar";
 
 export default function MainCard(){
 
 
     return (
         <div id="MainContainer">
-            <div className="TopCard">
-                <h1>Picks Of The Day (In Progress)</h1>
-                <DailyItem></DailyItem>
+            <div id = "CharCard" className="TopCard">
+                <DailyChar></DailyChar>
             </div>
             <div className="TopCard">
-                <h1>Creative Domain Banner (In Progress)</h1>
+                <img id = "BannerIMG" src="assets/Miscellaneous/creative_domain_banner_1.png"></img>
             </div>
             <div className="RowContainer">
                 <div className="MainCard">
-                    <h1>JOSH'S CREATIVE DOMAIN</h1>
+                    <div className="Header-Container">
+                        <h1>JOSH'S CREATIVE DOMAIN</h1>
+                        <img src="assets/gifs/firstSprite.gif" alt="My GIF"/>
+                    </div>
                     <p>
-                        Welcome Welcome! This is my blog for all my creative/cs ideas, projects, work, thoughts
+                    Welcome Welcome! This is my blog for all my creative/cs ideas, projects, work, thoughts
                         WHATEVER.
                         Everything here has been coded by yours truly and still VERY EARLY in development so I hope you
                         enjoy what I've made here!</p>
