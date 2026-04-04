@@ -1,11 +1,9 @@
 @import "../../node_modules/tailwindcss";
+
 * {
   box-sizing: border-box;
 }
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+
 #bgVideo {
   position: fixed;
   top: 0;
@@ -16,15 +14,9 @@
   object-fit: cover;
   z-index: -1;
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: transparent;
+  color: white;
   font-family: 'Minecraft';
 }

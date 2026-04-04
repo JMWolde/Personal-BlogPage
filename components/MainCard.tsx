@@ -1,7 +1,7 @@
 import {supabase} from "@/lib/supabase";
 import {useEffect} from "react";
 import DailyChar from "@/components/DailyChar";
-
+import '../app/css/MainCard.css'
 export default function MainCard(){
 
 
