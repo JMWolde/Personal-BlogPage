@@ -1,6 +1,7 @@
 "use client"
 import "../css/globals.css";
 import "../css/card.css";
+import "../css/PostCreate.css";
 // import TextPost from "@/components/TextBox";
 import {useState} from "react";
 import {useRouter} from "next/navigation";
@@ -65,7 +66,7 @@ async function handleTextUpload(Text_Content: string) {
     }
 
 
-    async function HandlePostUpload(files : FileList, Text_Content : string) {
+    async function HandlePostUpload(files : FileList, Text_Content : string, CreativeWork : boolean) {
     for (const file of files) {
         const { data , error } = await supabase.storage
             .from("PostImages")
@@ -75,7 +76,11 @@ async function handleTextUpload(Text_Content: string) {
             .from("PostImages")
             .getPublicUrl(`images/${file.name}`)
         const imageURL = urlData.publicUrl
-        await supabase.from("Posts").insert({ Post_Text: Text_Content, Images: imageURL })
+        if (CreativeWork == true) {
+            await supabase.from("Posts").insert({ Post_Text: Text_Content, Images: imageURL, CREATIVE_WORK: true})
+        } else {
+            await supabase.from("Posts").insert({ Post_Text: Text_Content, Images: imageURL })
+        }
         HandlePostRetrieval(files as FileList, Text_Content)
 
     }
@@ -144,6 +149,7 @@ async function DisplayImages(Images : string) {
 function PostBox() {
 
     const [text, setText] = useState("");
+    const [CreativeWork, setCreativeWork] = useState(false)
     const [Post_image, setImage] = useState<FileList | null>(null);
 
 
@@ -151,7 +157,7 @@ function PostBox() {
 
     function CreatePost() {
         if(Post_image && text) {
-            Post_image && HandlePostUpload(Post_image, text)
+            Post_image && HandlePostUpload(Post_image, text, CreativeWork)
         } else if (Post_image) {
             Post_image && handleImageUpload(Post_image)
         } else if (text) {
@@ -164,7 +170,6 @@ function PostBox() {
     }
 
 
-
     function showImages(files: FileList) {
         const preview1 = document.createElement("div")
         preview1.className = "preview"
@@ -175,7 +180,6 @@ function PostBox() {
             preview1!.appendChild(img);
         }
     }
-
     return (
         <div className="MakeSomething">
             <input type="file" multiple onChange={e => {
@@ -187,10 +191,14 @@ function PostBox() {
 
             }}
                 id="TextPost"></textarea>
+            <label className="checkbox-label">
+                <input type="checkbox" id="CreativeBox" onChange={e => { setCreativeWork(true)}}/>
+                <span>Creative Work</span>
+            </label>
             <button onClick={CreatePost} id="POSTBTN">Post</button>
         </div>
 
-)
+    )
 
 
 }

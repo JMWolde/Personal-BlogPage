@@ -61,13 +61,15 @@ async function commentCount(post) {
         useEffect(() => {
             commentCount(post).then(setCount);
         }, [post.id]);
+        console.log(post);
     return (
         <div className="PostCard">
             <h1>JOSH</h1>
             <p>{post.Post_Text}</p>
-            {post.Images && <img src={post.Images} alt="post" />}
+            {post.Images && <img src={post.Images} alt="post"/>}
             <h2>{post.id}</h2>
             <h4>{post.created_at?.split("T")[0]}</h4>
+            {post.CREATIVE_WORK && <h4 id = "Creative-Flair">*CREATIVE WORK*</h4>}
             <button className="RemoveBTN" onClick={() => handleRemove(post)}>Remove</button>
             <button className="CommentBTN" onClick={() => handleComment(post)}>Comment</button>
             <button id="CommentCounterBTN" onClick={() => handleComment(post)}>

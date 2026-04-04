@@ -6,6 +6,21 @@
     font-style: normal;
 }
 
+.MakeSomething {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: space-between;
+    width : 500px;
+    min-height : 200px;
+    /*background-color: azure;*/
+    /*background: rgba(0, 127, 255, 0.4);*/
+    background: rgba(0, 0, 255, 0.75);
+    backdrop-filter: blur(10px);
+    /*border: 4px solid rgba(0, 0, 0, 0.2);*/
+    border: 4px solid rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
 .CardContainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

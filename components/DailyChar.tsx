@@ -63,6 +63,26 @@ export default function DailyChar(){
             name: "MARIO",
             image: "assets/Char_Images/MARIO.png"
         },
+        {
+            id: 13,
+            name: "ABED NADIR",
+            image: "assets/Char_Images/ABED_NADIR.png"
+        },
+        {
+            id: 14,
+            name: "AMY SANTIAGO",
+            image: "assets/Char_Images/AMY_SANTIAGO.png"
+        },
+        {
+            id: 15,
+            name: "JESSICA DAY",
+            image: "assets/Char_Images/JESSICA_DAY.png"
+        },
+        {
+            id: 16,
+            name: "SONIC",
+            image: "assets/Char_Images/SONIC.png"
+        },
     ];
     const today = new Date()
     const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate()
