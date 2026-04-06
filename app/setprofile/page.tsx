@@ -9,11 +9,6 @@ import {supabase} from "@/lib/supabase";
 
 export default function setProfile() {
     function ProfileMaker() {
-        export type ProfileCard = {
-            status : string;
-            ProfilePic : Image;
-
-        }
         const [Image, setImage] = useState(null)
         const [Status, setStatus] = useState("");
         return (

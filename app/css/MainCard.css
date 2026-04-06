@@ -19,9 +19,18 @@
     gap : 10px;
 }
 .ProfileTextContainer {
-    align-self: flex-end;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    justify-content: flex-start;
     display: flex;
     flex-direction: column;
+}
+.ProfileTextContainer h1 {
+    display: flex;
+    margin-bottom: 50px;
+    align-self: center;
+    justify-self: center;
+    font-size: 30px;
 }
 .ProfileCard {
     display: flex;
