@@ -13,10 +13,42 @@
 #CharCard {
     width: 250px;
 }
+#Header-Main-Cards{
+    display: flex;
+    flex-direction: row;
+    gap : 10px;
+}
+.ProfileTextContainer {
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+}
+.ProfileCard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width : 700px;
+    height: 200px;
+    background: rgba(0, 0, 255, 0.75);
+    backdrop-filter: blur(10px);
+    border: 4px solid rgba(0, 0, 0, 0.2);
+}
+.ProfileCard img {
+    margin-right: 20px;
+    align-self: center;
+    display: flex;
+    margin-left: auto;
+    width: 150px !important;
+    height: 150px !important;
+    background: white;
+    backdrop-filter: blur(10px);
+    border: 4px solid rgba(0, 0, 0, 0.1);
+}
 .Header-Container img {
     margin-top: 10px;
     width: 64px !important;
     height: 64px !important;
+
 }
 .Home-Container {
     display: flex;
@@ -43,7 +75,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    width : 950px;
+    width : 960px;
     height: 200px;
     background: rgba(0, 0, 255, 0.75);
     backdrop-filter: blur(10px);

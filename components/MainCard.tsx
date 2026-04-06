@@ -2,15 +2,21 @@ import {supabase} from "@/lib/supabase";
 import {useEffect} from "react";
 import DailyChar from "@/components/DailyChar";
 import '../app/css/MainCard.css'
+import ProfileCard from "@/components/ProfileCard"
 export default function MainCard(){
 
 
     return (
         <div id="MainContainer">
-            <div id = "CharCard" className="TopCard">
-                <DailyChar></DailyChar>
+            <div id="Header-Main-Cards">
+                <div id="CharCard" className="TopCard">
+                    <DailyChar></DailyChar>
+                </div>
+                <div id="Profile-Card">
+                    <ProfileCard></ProfileCard>
+                </div>
             </div>
-            <div className="TopCard">
+            <div className="TopCard" id = "Banner-Card">
                 <img id = "BannerIMG" src="assets/Miscellaneous/creative_domain_banner_1.png"></img>
             </div>
             <div className="RowContainer">

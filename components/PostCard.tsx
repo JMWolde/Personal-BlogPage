@@ -74,7 +74,10 @@ async function commentCount(post) {
         <>
         {(filter && post.CREATIVE_WORK) &&
         <div className="PostCard">
-            <h1>JOSH</h1>
+            <div className="Profile-Header">
+                <img src="/assets/ProfilePics/JoshuaMIIPFP.png"></img>
+                <h1>JOSH</h1>
+            </div>
             <p>{post.Post_Text}</p>
             {post.Images && <img src={post.Images} alt="post"/>}
             <h2>{post.id}</h2>
@@ -89,7 +92,10 @@ async function commentCount(post) {
     }
     { !filter &&
         <div className="PostCard">
-            <h1>JOSH</h1>
+            <div className="Profile-Header">
+                <img src="/assets/ProfilePics/JoshuaMIIPFP.png"></img>
+                <h1>JOSH</h1>
+            </div>
             <p>{post.Post_Text}</p>
             {post.Images && <img src={post.Images} alt="post"/>}
             <h2>{post.id}</h2>
@@ -101,7 +107,7 @@ async function commentCount(post) {
                 Comments({count})
             </button>
         </div>
-        }
+    }
         </>
     )
     }
