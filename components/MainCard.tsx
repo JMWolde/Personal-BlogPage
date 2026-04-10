@@ -17,7 +17,7 @@ export default function MainCard(){
                 </div>
             </div>
             <div className="TopCard" id = "Banner-Card">
-                <img id = "BannerIMG" src="assets/Miscellaneous/creative_domain_banner_1.png"></img>
+                <img id = "BannerIMG" src="/assets/Miscellaneous/creative_domain_banner_1.png"></img>
             </div>
             <div className="RowContainer">
                 <div className="MainCard">

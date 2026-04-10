@@ -1,4 +1,6 @@
-@import "../../node_modules/tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
   box-sizing: border-box;
@@ -19,4 +21,9 @@ body {
   background: transparent;
   color: white;
   font-family: 'Minecraft';
+}
+html, body {
+  background: transparent;
+  margin: 0;
+  padding: 0;
 }

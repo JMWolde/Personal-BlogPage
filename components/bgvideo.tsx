@@ -1,6 +1,8 @@
 "use client"
 import { useEffect } from "react";
 import { useState } from "react";
+import Noise from '@/components/Noise'
+
 const videos = [
     // "/assets/videos/bgvideos/BK_HOME.mp4",
     // "/assets/videos/bgvideos/GTA_3.mp4",
@@ -21,11 +23,25 @@ const videos = [
     // "/assets/videos/bgvideos/SB_BB3.mp4",
     "/assets/videos/bgvideos/WII_RESORT.mp4"
 ]
+
 export default function BgVideo() {
     const randomIndex = Math.floor(Math.random() * videos.length)
     const finalVid = videos[randomIndex]
 
     return (
-        <video autoPlay loop muted src={finalVid} id="bgVideo" />
+        <>
+            {/*<video autoPlay loop muted src={finalVid} id="bgVideo"/>*/}
+            <img
+                src="/assets/Miscellaneous/yyc_bg1.png"
+                id="bgVideo"
+            />
+            <Noise
+                patternSize={250}
+                patternScaleX={2}
+                patternScaleY={2}
+                patternRefreshInterval={2}
+                patternAlpha={15}
+            />
+        </>
     )
 }
