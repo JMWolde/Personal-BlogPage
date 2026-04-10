@@ -17,13 +17,18 @@
   z-index: -1;
   transform: scale(1.1);
 }
-
+#root {
+  position: relative;
+  min-height: 100%;
+}
 body {
+  position: relative;
   background: transparent;
   color: white;
   font-family: 'Minecraft';
 }
 html, body {
+  height: 100%;
   background: transparent;
   margin: 0;
   padding: 0;

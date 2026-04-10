@@ -23,17 +23,22 @@ const [posts, setPosts] = useState<PostType[] | null>(null);
         }, []);
 
          return (
-             <div id = "PostContainer">
-                 <label className="Post-Filter">
-                     <input type="checkbox" onChange={(e) => {setCreativeFilter(e.target.checked)}}/>
-                     <span>Creative Work</span>
-                 </label>
-                 {CreativeFilter && posts?.map((post) => ( // filter
-                     <BuildPostCard key={post.id} post={post} filter={true}/>
-                 ))}
-                 {!CreativeFilter && posts?.map((post) => ( // no filter
-                     <BuildPostCard key={post.id} post={post} filter={false}/>
-                 ))}
+             <div className="Post-Holder">
+                 <div id="PostContainer">
+                     <h1><b>BLOG</b></h1>
+                     <label className="Post-Filter">
+                         <input type="checkbox" onChange={(e) => {
+                             setCreativeFilter(e.target.checked)
+                         }}/>
+                         <span>Creative Work</span>
+                     </label>
+                     {CreativeFilter && posts?.map((post) => ( // filter
+                         <BuildPostCard key={post.id} post={post} filter={true}/>
+                     ))}
+                     {!CreativeFilter && posts?.map((post) => ( // no filter
+                         <BuildPostCard key={post.id} post={post} filter={false}/>
+                     ))}
+                 </div>
              </div>
          )
      }

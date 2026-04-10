@@ -5,19 +5,64 @@
         max-width : 100%;
     }
 }
+
+.Post-Holder {
+    margin-top: 50px;
+    width: 700px;
+    height: 600px;
+    background: rgba(0, 0, 255, 0.75);
+    backdrop-filter: blur(10px);
+    border: 4px solid rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+}
+.Post-Holder::-webkit-scrollbar {
+    width: 10px;
+}
+.Post-Holder h1 {
+    font-family: 'Minecraft';
+    text-shadow: 2px 2px 4px black;
+    margin-top: 20px;
+    letter-spacing: 2px;
+    font-size: 30px;
+    font-weight: normal;
+    color: azure;
+}
+.ProfileCard h1{
+    font-family: 'Minecraft';
+    text-shadow: 2px 2px 4px black;
+    letter-spacing: 2px;
+    font-size: 30px;
+    font-weight: normal;
+    color: azure;
+    text-indent: 1em;
+}
+.Post-Holder::-webkit-scrollbar-track {
+    background: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.Post-Holder::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 255, 0.75);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.box::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    cursor: pointer;
+}
 #PostContainer {
     display: flex;
-    margin-top: 30px;
-    margin-left: 40px;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-end;
     width: auto;
     gap: 30px;
-    min-height: 100vh
-
+    min-height: 100vh;
 
 }
+/*checkbox*/
 .Post-Filter {
     font-family: 'Minecraft';
     text-shadow: 2px 2px 8px black;
@@ -26,9 +71,9 @@
     font-weight: normal;
     color: azure;
 
-    background: rgba(0, 0, 255, 0.75);
+    background: rgba(30, 30, 30, 0.75);
     backdrop-filter: blur(10px);
-    border: 2px solid rgba(0, 0, 0, 0.2);
+    border: 4px solid rgba(0, 0, 0, 0.2);
     padding: 4px 8px;
 }
 .Profile-Header {
@@ -61,11 +106,8 @@
     align-content: space-between;
     width : 500px;
     min-height : 200px;
-    /*background-color: azure;*/
-    /*background: rgba(0, 127, 255, 0.4);*/
-    background: rgba(0, 0, 255, 0.75);
+    background: rgba(30, 30, 30, 0.75);
     backdrop-filter: blur(10px);
-    /*border: 4px solid rgba(0, 0, 0, 0.2);*/
     border: 4px solid rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
 }

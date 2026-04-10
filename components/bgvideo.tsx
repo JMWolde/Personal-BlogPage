@@ -32,15 +32,15 @@ export default function BgVideo() {
         <>
             {/*<video autoPlay loop muted src={finalVid} id="bgVideo"/>*/}
             <img
-                src="/assets/Miscellaneous/yyc_bg1.png"
+                src="/assets/Miscellaneous/yyc_bg2.png"
                 id="bgVideo"
             />
             <Noise
                 patternSize={250}
-                patternScaleX={2}
-                patternScaleY={2}
+                patternScaleX={10}
+                patternScaleY={10}
                 patternRefreshInterval={2}
-                patternAlpha={35}
+                patternAlpha={25}
             />
         </>
     )
