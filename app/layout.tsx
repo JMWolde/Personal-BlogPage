@@ -3,6 +3,7 @@ import "./css/globals.css";
 import "./css/Noise.css"
 import type { ReactNode } from "react";
 import BgVideo from "../components/bgvideo";
+
 import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
 
