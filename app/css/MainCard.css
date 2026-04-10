@@ -27,7 +27,7 @@
 }
 .ProfileTextContainer h1 {
     display: flex;
-    margin-bottom: 50px;
+    margin-bottom: 0px;
     align-self: center;
     justify-self: center;
     font-size: 30px;
