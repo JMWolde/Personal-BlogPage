@@ -37,6 +37,7 @@ export default function MainCard(){
                         <li><a href="https://letterboxd.com/Jwolde/">LetterBoxd</a></li>
                         <li><a href="https://pin.it/25ry1CVF1">Pinterest</a></li>
                         <li><a href="https://github.com/JMWolde">Github</a></li>
+                        <li><a href="https://open.spotify.com/user/ym91kzcbwmjp4vw0u8nxvw10n?si=de9f091ed67b44f4">Spotify</a></li>
                     </ul>
                 </div>
             </div>

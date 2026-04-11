@@ -9,6 +9,7 @@ import MainCard from "../components/MainCard";
 import PostCard from "@/components/PostCard";
 import DailyChar from "../components/DailyChar";
 import ProfileCard from "../components/ProfileCard";
+import DecryptedText from "../components/DecryptedText";
 export default function HomePage() {
     return (
         <main>
@@ -26,8 +27,17 @@ export default function HomePage() {
                     </div>
                     <div className="MainCard">
                         <div className="Header-Container">
-                            <h1><b>JOSH'S CREATIVE DOMAIN</b></h1>
-                            <img src="assets/gifs/firstSprite.gif" alt="My GIF"/>
+                            <div style={{marginTop: '1rem'}}><b>
+                                <DecryptedText
+                                    text="CREATIVE DOMAIN"
+                                    animateOn="inViewHover"
+                                    revealDirection="start"
+                                    sequential
+                                    useOriginalCharsOnly={false}
+                                />
+
+                            </b></div>
+                            {/*<img src="assets/gifs/firstSprite.gif" alt="My GIF"/>*/}
                         </div>
                         <p>
                             Welcome Welcome! This is my blog for all my creative/cs ideas, projects, work, thoughts
@@ -40,11 +50,26 @@ export default function HomePage() {
                 </div>
                 <div className="Right-Column">
                     <div className="SideCard">
-                        <h1><b>My Socials</b></h1>
+                        <div className="Right-Corner">
+                            <img src="/assets/Miscellaneous/FixedMiiRender.png" id="MiiCorner"/>
+                        </div>
+                        <div id="BlogHeader" style={{marginTop: '1rem', marginLeft: '1.5rem'}}><b>
+                            <DecryptedText
+                                text="MY SOCIALS"
+                                animateOn="inViewHover"
+                                revealDirection="start"
+                                sequential
+                                useOriginalCharsOnly={false}
+                            />
+
+                        </b></div>
                         <ul>
                             <li><a href="https://letterboxd.com/Jwolde/">LetterBoxd</a></li>
                             <li><a href="https://pin.it/25ry1CVF1">Pinterest</a></li>
                             <li><a href="https://github.com/JMWolde">Github</a></li>
+                            <li><a
+                                href="https://open.spotify.com/user/ym91kzcbwmjp4vw0u8nxvw10n?si=de9f091ed67b44f4">Spotify</a>
+                            </li>
                         </ul>
                     </div>
                 </div>

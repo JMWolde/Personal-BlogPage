@@ -126,6 +126,10 @@
 .PostCard h2 {
     opacity: 0;
 }
+#BlogHeader {
+    font-size: 30px;
+    text-shadow: 2px 2px 4px black;;
+}
 .PostCard > img {
     margin-top: 20px;
     margin-left: auto;

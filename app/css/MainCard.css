@@ -9,6 +9,9 @@
 .Header-Container {
     display: flex;
     flex-display: row;
+    justify-content: center;
+    font-size: 30px;
+    text-shadow: 2px 2px 4px black;;
 }
 #CharCard {
     width: 250px;
@@ -25,6 +28,14 @@
     display: flex;
     flex-direction: column;
 }
+.ProfileColumn{
+    display: flex;
+    flex-direction: column;
+}
+.ProfileRow {
+    display: flex;
+    flex-direction: row;
+}
 .ProfileTextContainer h1 {
     display: flex;
     margin-bottom: 0px;
@@ -37,14 +48,14 @@
     flex-direction: row;
     justify-content: space-around;
     width : 700px;
-    height: 200px;
+    height: 220px;
     background: rgba(0, 0, 255, 0.75);
     backdrop-filter: blur(10px);
     border: 4px solid rgba(0, 0, 55, 0.7);
 }
 .ProfileCard img {
     margin-right: 20px;
-    align-self: center;
+    justify-self: flex-start;
     display: flex;
     margin-left: auto;
     width: 150px !important;
@@ -52,6 +63,7 @@
     background: white;
     backdrop-filter: blur(10px);
     border: 4px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 500px;
 }
 .Header-Container img {
     margin-top: 10px;
@@ -142,8 +154,21 @@
 .MainCard button:hover {
     transform: scale(1.2);
 }
+.Right-Corner {
+    position: absolute;
+    width : 250px;
+    min-height: 300px;
+    height: 400px;
+    pointer-events: none;
+}
+.Right-Corner img{
+    margin-top: 230px;
+    margin-left: 120px;
+    filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.5));
+}
 
 .SideCard {
+    position: relative;  /* ✅ add this */
     display: flex;
     flex-direction: column;
     width : 250px;

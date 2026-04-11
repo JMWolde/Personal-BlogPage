@@ -3,6 +3,8 @@ import {supabase} from "@/lib/supabase";
 import { PostType } from "./types";
 import dayjs from "dayjs"
 import '../app/css/PostCard.css'
+import DecryptedText from "@/components/DecryptedText";
+
 export default function PostCard(){
 return <GetPosts/>
 }
@@ -25,7 +27,16 @@ const [posts, setPosts] = useState<PostType[] | null>(null);
          return (
              <div className="Post-Holder">
                  <div id="PostContainer">
-                     <h1><b>BLOG</b></h1>
+                     <div id ="BlogHeader" style={{marginTop: '1rem'}}><b>
+                         <DecryptedText
+                             text="BLOG"
+                             animateOn="inViewHover"
+                             revealDirection="start"
+                             sequential
+                             useOriginalCharsOnly={false}
+                         />
+
+                     </b></div>
                      <label className="Post-Filter">
                          <input type="checkbox" onChange={(e) => {
                              setCreativeFilter(e.target.checked)
