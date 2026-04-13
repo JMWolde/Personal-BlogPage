@@ -2,7 +2,7 @@
 
 A full-stack personal blog platform for documenting creative and computer science projects, ideas, and work.
 
-🔗 **Live Site:** [thecreativedomain.vercel.app](https://thecreativedomain.vercel.app)
+🔗 **Live Site:** [creativedomain.studio](https://creativedomain.studio)
 
 ---
 
