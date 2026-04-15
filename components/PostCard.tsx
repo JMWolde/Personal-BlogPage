@@ -41,7 +41,7 @@ const [posts, setPosts] = useState<PostType[] | null>(null);
                          <input type="checkbox" onChange={(e) => {
                              setCreativeFilter(e.target.checked)
                          }}/>
-                         <span>Creative Work</span>
+                         <span> Creative Work</span>
                      </label>
                      {CreativeFilter && posts?.map((post) => ( // filter
                          <BuildPostCard key={post.id} post={post} filter={true}/>
