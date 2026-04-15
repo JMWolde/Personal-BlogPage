@@ -5,3 +5,8 @@ export type PostType = {
     Images: string;
 
 }
+export type CommentType = {
+    id: string;
+    Comment_Text: string;
+    created_at: string;
+}

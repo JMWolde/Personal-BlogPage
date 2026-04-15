@@ -8,6 +8,8 @@ import "../css/globals.css";
 import "../css/PageCard.css";
 import "../css/Button.css";
 import "../css/Comment.css";
+import "../css/CommentCard.css";
+import CommentCard from "@/components/CommentCard";
 import customParseFormat from "dayjs/plugin/customParseFormat"
 import {PostType} from "@/components/types";
 
@@ -25,20 +27,18 @@ function PostPageContent() {
 }
 function GetPost(props) {
     const [post, setPost] = useState<PostType | null>(null);
-    const [comments, setComments] = useState<PostType[] | null>(null);
     useEffect(() => {
         const GetPost = async () => {
             const {data: post } = await supabase.from("Posts").select().eq('id', props.PostID).single();
             const {data: comments} = await supabase.from("Comments").select().eq('post_id', props.PostID)
             setPost(post);
-            setComments(comments);
         }
         GetPost();
     }, [props.PostID]);
 
     return (
         <div id="PageContainer">
-            {post && <BuildPostCard post={post!} comments={comments!} />}
+            {post && <BuildPostCard post={post!} />}
         </div>
     // <div id="CommentContainer">
     //     <BuildCommentCard comments={comments}/>
@@ -57,15 +57,21 @@ async function handleRemove(post) {
     }
 }
 
-// async function commentCount(post) {
-//     const {count, error} = await supabase
-//         .from("Comments")
-//         .select('*', {count: 'exact', head: true})
-//         .eq('post_id', post.id)
-//     return count
-// }
 function BuildPostCard({ post, comments }: { post: PostType; comments: PostType[] }){
-    const [showComment, setShowComment] = useState(false);
+
+    const [CommentBox, SetCommentBox] = useState(false);
+    const [CommentSection, setCommentSection] = useState(true);
+    const [comment, setComment] = useState<PostType[] | null>(null);
+    // async function checkComments(){
+    //     const { data } = await supabase
+    //         .from('Comments')
+    //         .select().eq('post_id', post.id)
+    //         .maybeSingle();
+    //     const exists = !!data;
+    //     if (exists != null) {
+    //         setCommentSection(true)
+    //     }
+    // }
     function handleComment(post){
         return (
             <div className="CreateComment">
@@ -75,34 +81,45 @@ function BuildPostCard({ post, comments }: { post: PostType; comments: PostType[
 
         )
     }
-    async function SaveComment(CommentBox) {
-        const { data, error } = await supabase.from("Comments").insert({ comment_text: CommentBox.value, post_id: post.id })
-        const {data: comments} = await supabase.from("Comments").select().eq('post_id', post.id)
+    async function SaveComment(comment) {
+        const { data, error } = await supabase.from("Comments").insert({ comment_text: comment, post_id: post.id })
+        setCommentSection(true);
         alert("Comment Posted!")
     }
-    async function FetchComments(comments){
+    async function FetchComments(){
+        const {data: comments} = await supabase.from("Comments").select().eq('post_id', post.id)
         comments.map((comment) => {
 
             return (
-                <div className="CommentCard">
                     <p>{comment.comment_text}</p>
-                </div>
             )
         });
     }
     return (
-        <div className="PageCard">
-            <h1>JOSH</h1>
-            <p>{post.Post_Text}</p>
-            {post.Images && <img src={post.Images} alt="post" />}
-            <h2>{post.id}</h2>
-            <h4>{post.created_at?.split("T")[0]}</h4>
-            <button className="RemoveBTN" onClick={() => handleRemove(post)}>Remove</button>
-            <button className="CommentBTN" onClick={() => handleComment(post)}>Comment</button>
-            {/*<button id="CommentCounterBTN" onClick={() => handleComment(post)}>*/}
-            {/*    Comments({count})*/}
-            {/*</button>*/}
+        <div className="PageContainer">
+            <div className="PageCard">
+                <h1>JOSH</h1>
+                <p>{post.Post_Text}</p>
+                {post.Images && <img src={post.Images} alt="post"/>}
+                <h2>{post.id}</h2>
+                <h4>{post.created_at?.split("T")[0]}</h4>
+                <button className="RemoveBTN" onClick={() => handleRemove(post)} style={{display: CommentBox ? 'none' : 'flex'}}>Remove</button>
+                <button className="CommentBTN" onClick={() => SetCommentBox(true)} style={{display: CommentBox ? 'none' : 'flex'}} >Comment</button>
+                {console.log(CommentBox)}
+                {CommentBox &&
+                    <div className="CommentSection">
+                    <textarea placeholder={"Comment here"} onChange={e => {
+                        setComment(e.target.value)
+                    }} style={{display: CommentBox ? 'flex' : 'none'}} id="CommentBox"></textarea>
+                        <button className="CommentBTN" onClick={() => SetCommentBox(false)}style={{display: CommentBox ? 'flex' : 'none'}} >X</button>
+                        <button className="CommentBTN" onClick={() => SaveComment(comment)} >Submit</button>
+                    </div>
+                }
+            </div>
+            {/*{checkComments()}*/}
+            {CommentSection && <CommentCard PostID={post.id}/>}
         </div>
+
     )
 }
 
