@@ -5,28 +5,28 @@ export default function DailyChar(){
     const characters = [
         {
             id: 1,
-            name: "LA KNIGHT",
-            image: "assets/Char_Images/LA_KNIGHT.png"
-        },
-        {
-            id: 2,
-            name: "AJ STYLES",
-            image: "assets/Char_Images/AJ_STYLES.png"
-        },
-        {
-            id: 3,
             name: "ARTHUR MORGAN",
             image: "assets/Char_Images/Arthur_Morgan.png"
         },
         {
+            id: 2,
+            name: "CAPTAIN HOLT",
+            image: "assets/Char_Images/CAPTAIN_HOLT.png"
+        },
+        {
+            id: 3,
+            name: "LA KNIGHT",
+            image: "assets/Char_Images/LA_KNIGHT.png"
+        },
+        {
             id: 4,
-            name: "BRET HART",
-            image: "assets/Char_Images/BRET_HART.png"
+            name: "MONKEY D. LUFFY",
+            image: "assets/Char_Images/LUFFY.png"
         },
         {
             id: 5,
-            name: "CAPTAIN HOLT",
-            image: "assets/Char_Images/CAPTAIN_HOLT.png"
+            name: "JESSICA DAY",
+            image: "assets/Char_Images/JESSICA_DAY.png"
         },
         {
             id: 6,
@@ -35,53 +35,63 @@ export default function DailyChar(){
         },
         {
             id: 7,
-            name: "IYO SKU",
-            image: "assets/Char_Images/IYO_SKY.png"
+            name: "SONIC",
+            image: "assets/Char_Images/SONIC.png"
         },
         {
             id: 8,
-            name: "JINX",
-            image: "assets/Char_Images/JINX.png"
-        },
-        {
-            id: 9,
-            name: "JOHN CENA",
-            image: "assets/Char_Images/JOHN_CENA.png"
-        },
-        {
-            id: 10,
-            name: "LUCY CHEN",
-            image: "assets/Char_Images/LUCY_CHEN.png"
-        },
-        {
-            id: 11,
-            name: "MONKEY D. LUFFY",
-            image: "assets/Char_Images/LUFFY.png"
-        },
-        {
-            id: 12,
-            name: "MARIO",
-            image: "assets/Char_Images/MARIO.png"
-        },
-        {
-            id: 13,
-            name: "ABED NADIR",
-            image: "assets/Char_Images/ABED_NADIR.png"
-        },
-        {
-            id: 14,
             name: "AMY SANTIAGO",
             image: "assets/Char_Images/AMY_SANTIAGO.png"
         },
         {
+            id: 9,
+            name: "JINX",
+            image: "assets/Char_Images/JINX.png"
+        },
+        {
+            id: 10,
+            name: "JOHN CENA",
+            image: "assets/Char_Images/JOHN_CENA.png"
+        },
+        {
+            id: 11,
+            name: "ABED NADIR",
+            image: "assets/Char_Images/ABED_NADIR.png"
+        },
+        {
+            id: 12,
+            name: "NAMI",
+            image: "assets/Char_Images/NAMI.png"
+        },
+        {
+            id: 13,
+            name: "MARIO",
+            image: "assets/Char_Images/MARIO.png"
+        },
+        {
+            id: 14,
+            name: "IYO SKY",
+            image: "assets/Char_Images/IYO_SKY.png"
+        },
+        {
             id: 15,
-            name: "JESSICA DAY",
-            image: "assets/Char_Images/JESSICA_DAY.png"
+            name: "AUNT VIV",
+            image: "assets/Char_Images/AUNT_VIV.png"
         },
         {
             id: 16,
-            name: "SONIC",
-            image: "assets/Char_Images/SONIC.png"
+            name: "AJ STYLES",
+            image: "assets/Char_Images/AJ_STYLES.png"
+        },
+        {
+            id: 17,
+            name: "LUCY CHEN",
+            image: "assets/Char_Images/LUCY_CHEN.png"
+        },
+        {
+            id: 18,
+            name: "BRET HART",
+            image: "assets/Char_Images/BRET_HART.png"
         },
     ];
     const today = new Date()

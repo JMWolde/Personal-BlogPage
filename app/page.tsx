@@ -13,6 +13,13 @@ import DecryptedText from "../components/DecryptedText";
 export default function HomePage() {
     return (
         <main>
+            <div id="mobile-warning">
+                ⚠️ This site is NOT optimized for mobile. Please visit on a desktop for
+                a much better experience.
+                <button className="BTN" onClick={() => document.getElementById('mobile-warning').style.setProperty('display', 'none', 'important')}>
+                    X
+                </button>
+            </div>
             <div className="Home-Container">
                 <div className="Left-Column">
                     <div id="CharCard" className="TopCard">
@@ -22,7 +29,7 @@ export default function HomePage() {
                 <div className="Center-Column">
                     <div id="Header-Main-Cards">
                         <div id="Profile-Card">
-                        <ProfileCard></ProfileCard>
+                            <ProfileCard></ProfileCard>
                         </div>
                     </div>
                     <div className="MainCard">
@@ -40,11 +47,12 @@ export default function HomePage() {
                             {/*<img src="assets/gifs/firstSprite.gif" alt="My GIF"/>*/}
                         </div>
                         <p>
-                            Welcome Welcome! This is my blog for all my creative/cs ideas, projects, work, thoughts
-                            WHATEVER.
-                            Everything here has been coded by yours truly and still VERY EARLY in development so I hope
+                            Helllooo! This is my blog for all my creative/cs ideas, projects, work, thoughts
+                            whatever.
+                            Everything here has been coded by yours truly and still VERY EARLY in development and not at all
+                            friendly for mobile devices (recommend for desktop) but I do hope
                             you
-                            enjoy what I've made here!</p>
+                            enjoy or take a look at what I've made here!</p>
                     </div>
                     <PostCard/>
                 </div>

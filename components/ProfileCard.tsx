@@ -22,7 +22,7 @@ export default function ProfileCard(){
                     <h2><b>Currently Watching:</b> Invincible & 2 Broke Girls</h2>
                     <h2><b>Song On Repeat:</b> The Blonde - TV Girl</h2>
                     <h2><b>Status:</b> Health utterly destroyed by energy drinks</h2>
-                    <h2><b>Learning About:</b> Pixel art</h2>
+                    <h2><b>Learning About:</b> The best way to design water in modeling</h2>
                 </div>
                 <img src="/assets/ProfilePics/PicOFMe.jpg"></img>
                 </div>

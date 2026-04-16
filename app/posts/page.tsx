@@ -63,15 +63,7 @@ function BuildPostCard({ post, comments }: { post: PostType; comments: PostType[
     const [CommentSection, setCommentSection] = useState(true);
     const [comment, setComment] = useState<PostType[] | null>(null);
     const [commentName, setCommentName] = useState("Commenter");
-    function handleComment(post){
-        return (
-            <div className="CreateComment">
-                <textarea id="CommentBox">Write Comment...</textarea>
-                <button id="PageSubmitBTN" onClick={() => SaveComment(document.getElementById("CommentBox"))}>SUBMIT</button>
-            </div>
 
-        )
-    }
     async function SaveComment(comment) {
         const { data, error } = await supabase.from("Comments").insert({ comment_text: comment, post_id: post.id, comment_Name: commentName})
         setCommentSection(true);
