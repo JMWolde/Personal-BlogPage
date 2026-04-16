@@ -14,7 +14,7 @@ function GetComments({PostID}) {
     const [comments, setComments] = useState<CommentType[] | null>(null);
     useEffect(() => {
         const GetComments = async () => {
-            const {data: comments} = await supabase.from("Comments").select().eq('post_id', PostID)
+            const {data: comments} = await supabase.from("Comments").select().eq('post_id', PostID).order('created_at', { ascending: false })
                 .returns<CommentType[]>();
             setComments(comments);
         }
@@ -47,12 +47,23 @@ async function handleRemove(comment) {
         alert("NAH NAH")
     }
 }
+function getCommentName(comment){
+    if (comment.comment_Name == null) {
+        console.log(comment.comment_Name)
+        return "Commenter";
+    } else {
+        console.log(comment.comment_Name)
+        return comment.comment_Name;
+    }
+
+}
 
 async function commentCount(post) {
         const {count, error} = await supabase
             .from("Comments")
             .select('*', {count: 'exact', head: true})
             .eq('post_id', post.id)
+
         return count
     }
     function BuildCommentCard({comment}) {
@@ -61,8 +72,8 @@ async function commentCount(post) {
         <div className="CommentCard">
 
             <div className="Profile-Header">
-                <img src="/assets/ProfilePics/JoshuaMIIPFP.png"></img>
-                <h1>Commenter</h1>
+                <img src="/assets/ProfilePics/BlankCommenter.png"></img>
+                <h1>{comment.comment_Name}</h1>
             </div>
             <p>{comment.comment_text}</p>
             {/*{post.Images && <img src={post.Images} alt="post"/>}*/}

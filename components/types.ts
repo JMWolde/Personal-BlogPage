@@ -8,5 +8,6 @@ export type PostType = {
 export type CommentType = {
     id: string;
     Comment_Text: string;
+    comment_Name: string;
     created_at: string;
 }

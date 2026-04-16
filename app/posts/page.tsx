@@ -62,38 +62,20 @@ function BuildPostCard({ post, comments }: { post: PostType; comments: PostType[
     const [CommentBox, SetCommentBox] = useState(false);
     const [CommentSection, setCommentSection] = useState(true);
     const [comment, setComment] = useState<PostType[] | null>(null);
-    // async function checkComments(){
-    //     const { data } = await supabase
-    //         .from('Comments')
-    //         .select().eq('post_id', post.id)
-    //         .maybeSingle();
-    //     const exists = !!data;
-    //     if (exists != null) {
-    //         setCommentSection(true)
-    //     }
-    // }
+    const [commentName, setCommentName] = useState("Commenter");
     function handleComment(post){
         return (
             <div className="CreateComment">
                 <textarea id="CommentBox">Write Comment...</textarea>
-                <button id="PageSubmitBTN" onClick={() => SaveComment(document.getElementById("CommentBox"))}>Submit</button>
+                <button id="PageSubmitBTN" onClick={() => SaveComment(document.getElementById("CommentBox"))}>SUBMIT</button>
             </div>
 
         )
     }
     async function SaveComment(comment) {
-        const { data, error } = await supabase.from("Comments").insert({ comment_text: comment, post_id: post.id })
+        const { data, error } = await supabase.from("Comments").insert({ comment_text: comment, post_id: post.id, comment_Name: commentName})
         setCommentSection(true);
         alert("Comment Posted!")
-    }
-    async function FetchComments(){
-        const {data: comments} = await supabase.from("Comments").select().eq('post_id', post.id)
-        comments.map((comment) => {
-
-            return (
-                    <p>{comment.comment_text}</p>
-            )
-        });
     }
     return (
         <div className="PageContainer">
@@ -103,20 +85,32 @@ function BuildPostCard({ post, comments }: { post: PostType; comments: PostType[
                 {post.Images && <img src={post.Images} alt="post"/>}
                 <h2>{post.id}</h2>
                 <h4>{post.created_at?.split("T")[0]}</h4>
-                <button className="RemoveBTN" onClick={() => handleRemove(post)} style={{display: CommentBox ? 'none' : 'flex'}}>Remove</button>
-                <button className="CommentBTN" onClick={() => SetCommentBox(true)} style={{display: CommentBox ? 'none' : 'flex'}} >Comment</button>
-                {console.log(CommentBox)}
+                <button className="RemoveBTN" onClick={() => handleRemove(post)} style={{display: CommentBox ? 'none' : 'flex'}}>REMOVE</button>
+                <button className="CommentBTN" onClick={() => SetCommentBox(true)} style={{display: CommentBox ? 'none' : 'flex'}} >COMMENT</button>
                 {CommentBox &&
                     <div className="CommentSection">
-                    <textarea placeholder={"Comment here"} onChange={e => {
-                        setComment(e.target.value)
-                    }} style={{display: CommentBox ? 'flex' : 'none'}} id="CommentBox"></textarea>
-                        <button className="CommentBTN" onClick={() => SetCommentBox(false)}style={{display: CommentBox ? 'flex' : 'none'}} >X</button>
-                        <button className="CommentBTN" onClick={() => SaveComment(comment)} >Submit</button>
+                        <div className="TopRow">
+
+
+
+                            <input type="text" placeholder={"  Name"} onChange={e => {
+                                setCommentName(e.target.value)
+                            }} style={{display: CommentBox ? 'flex' : 'none'}} id="CommentNameBox"></input>
+
+
+
+                            <button className="BTN" onClick={() => SetCommentBox(false)}
+                                    style={{display: CommentBox ? 'flex' : 'none'}}>X
+                            </button>
+                            <button className="BTN" onClick={() => SaveComment(comment, commentName)}>SUBMIT
+                            </button>
+                        </div>
+                        <textarea placeholder={"  Comment here"} onChange={e => {
+                            setComment(e.target.value)
+                        }} style={{display: CommentBox ? 'flex' : 'none'}} id="CommentBox"></textarea>
                     </div>
                 }
             </div>
-            {/*{checkComments()}*/}
             {CommentSection && <CommentCard PostID={post.id}/>}
         </div>
 

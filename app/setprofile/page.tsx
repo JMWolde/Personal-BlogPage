@@ -20,7 +20,7 @@ export default function setProfile() {
                     setStatus(e.target.value)
                 }}
                           id="StatusBox"></textarea>
-                <button onClick={setProfile} id="SubmitBTN">Submit</button>
+                <button onClick={setProfile} id="SubmitBTN">SUBMIT</button>
             </div>
 
         )
