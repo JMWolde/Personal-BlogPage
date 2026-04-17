@@ -30,7 +30,8 @@ export default function BgVideo() {
 
     return (
         <>
-            <video autoPlay loop muted src={finalVid} id="bgVideo"/>
+            <video autoPlay loop muted playsInline
+                   src={finalVid} id="bgVideo"/>
             {/*<img*/}
             {/*    src="/assets/Miscellaneous/yyc_bg2.png"*/}
             {/*    id="bgVideo"*/}

@@ -134,7 +134,7 @@
 .MainCard p {
     font-family: 'Minecraft';
     text-shadow: 2px 2px 4px black;
-    margin-left: 10px;
+    margin-left: 5px;
     margin-top: 20px;
     letter-spacing: 2px;
     --drop-shadow-md: ;
