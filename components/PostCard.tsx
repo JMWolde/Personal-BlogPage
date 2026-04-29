@@ -27,9 +27,9 @@ const [posts, setPosts] = useState<PostType[] | null>(null);
          return (
              <div className="Post-Holder">
                  <div id="PostContainer">
-                     <div id ="BlogHeader" style={{marginTop: '1rem'}}><b>
+                     <div id ="Header" style={{marginTop: '1rem'}}><b>
                          <DecryptedText
-                             text="BLOG"
+                             text="POSTS"
                              animateOn="inViewHover"
                              revealDirection="start"
                              sequential
@@ -85,7 +85,6 @@ async function commentCount(post) {
         useEffect(() => {
             commentCount(post).then(setCount);
         }, [post.id]);
-        console.log(filter);
     return (
         <>
         {(filter && post.CREATIVE_WORK) &&

@@ -5,6 +5,14 @@ export type PostType = {
     Images: string;
 
 }
+export type BlogType = {
+    id: string;
+    Blog_Text: string;
+    Blog_Title: string;
+    created_at: string;
+    Images: string;
+
+}
 export type CommentType = {
     id: string;
     Comment_Text: string;

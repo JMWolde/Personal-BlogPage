@@ -10,6 +10,7 @@ import PostCard from "@/components/PostCard";
 import DailyChar from "../components/DailyChar";
 import ProfileCard from "../components/ProfileCard";
 import DecryptedText from "../components/DecryptedText";
+import BlogCard from "@/components/BlogCard";
 export default function HomePage() {
     return (
         <main>
@@ -61,7 +62,7 @@ export default function HomePage() {
                         <div className="Right-Corner">
                             <img src="/assets/Miscellaneous/FixedMiiRender.png" id="MiiCorner"/>
                         </div>
-                        <div id="BlogHeader" style={{marginTop: '1rem', marginLeft: '1.5rem'}}><b>
+                        <div id="Header" style={{marginTop: '1rem', marginLeft: '1.5rem'}}><b>
                             <DecryptedText
                                 text="MY SOCIALS"
                                 animateOn="inViewHover"
@@ -79,6 +80,18 @@ export default function HomePage() {
                                 href="https://open.spotify.com/user/ym91kzcbwmjp4vw0u8nxvw10n?si=de9f091ed67b44f4">Spotify</a>
                             </li>
                         </ul>
+                    </div>
+                    <div className="SideCard">
+                        <div id="Header" style={{marginTop: '1rem', marginLeft: '3rem'}}><b>
+                            <DecryptedText
+                                text="MY BLOG"
+                                animateOn="inViewHover"
+                                revealDirection="start"
+                                sequential
+                                useOriginalCharsOnly={false}
+                            />
+                        </b></div>
+                        <BlogCard></BlogCard>
                     </div>
                 </div>
             </div>

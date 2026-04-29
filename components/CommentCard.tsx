@@ -23,7 +23,7 @@ function GetComments({PostID}) {
 
     return (
         <div id="CommentContainer">
-            <div id="BlogHeader" style={{marginTop: '1rem'}}><b>
+            <div id="Header" style={{marginTop: '1rem'}}><b>
                 <DecryptedText
                     text="Comments"
                     animateOn="inViewHover"
