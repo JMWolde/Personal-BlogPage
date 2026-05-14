@@ -79,6 +79,10 @@ export default function HomePage() {
                             <li><a
                                 href="https://open.spotify.com/user/ym91kzcbwmjp4vw0u8nxvw10n?si=de9f091ed67b44f4">Spotify</a>
                             </li>
+                            <li><a href="https://dropkickd.com/user/Grumps">Dropkickd</a>
+                            </li>
+                            <li><a href="http://users3.smartgb.com/g/g.php?a=s&i=g36-41324-c2">Guestbook</a>
+                            </li>
                         </ul>
                     </div>
                     <div className="SideCard">

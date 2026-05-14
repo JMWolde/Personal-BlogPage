@@ -18,11 +18,11 @@ export default function ProfileCard(){
             </div>
                 <div className="ProfileRow">
                 <div className="ProfileTextContainer">
-                    <h2><b>Currently Playing:</b> Lego Marvel Super Heroes (100% run)</h2>
+                    <h2><b>Currently Playing:</b> Pokémon Emerald</h2>
                     <h2><b>Currently Watching:</b> The Boys s5 & Arrested Development</h2>
                     <h2><b>Song On Repeat:</b> Theme from Superman - John Murphy</h2>
-                    <h2><b>Status:</b> Finally coding again</h2>
-                    <h2><b>Learning:</b> Unity</h2>
+                    <h2><b>Status:</b> Dropping too much money on comics</h2>
+                    <h2><b>Learning:</b> UV mapping</h2>
                 </div>
                 <img src="/assets/ProfilePics/PicOFMe.jpg"></img>
                 </div>
