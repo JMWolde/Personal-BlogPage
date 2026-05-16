@@ -1,4 +1,4 @@
-
+import { Analytics } from '@vercel/analytics/react'
 import "./css/globals.css";
 import "./css/Noise.css"
 import type { ReactNode } from "react";
@@ -21,6 +21,7 @@ export default function RootLayout({children,}: {
         </head>
         <body>
         {children}
+        <Analytics />
         <BgVideo/>
         </body>
 

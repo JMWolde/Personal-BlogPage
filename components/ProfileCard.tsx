@@ -20,9 +20,9 @@ export default function ProfileCard(){
                 <div className="ProfileTextContainer">
                     <h2><b>Currently Playing:</b> Pokémon Emerald</h2>
                     <h2><b>Currently Watching:</b> The Boys s5 & Arrested Development</h2>
-                    <h2><b>Song On Repeat:</b> Theme from Superman - John Murphy</h2>
-                    <h2><b>Status:</b> Dropping too much money on comics</h2>
-                    <h2><b>Learning:</b> UV mapping</h2>
+                    <h2><b>Song On Repeat:</b> Happy Birthday - The holiday song</h2>
+                    <h2><b>Status:</b> Unc</h2>
+                    <h2><b>Learning:</b> Supabase auth</h2>
                 </div>
                 <img src="/assets/ProfilePics/PicOFMe.jpg"></img>
                 </div>
