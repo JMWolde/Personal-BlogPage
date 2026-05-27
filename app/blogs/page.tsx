@@ -47,7 +47,8 @@ function BuildBlogCard({ blog }: { blog: BlogType }){
         <div className="PageContainer">
             <div className="PageCard">
                 <h1>{blog.Blog_Title}</h1>
-                <p>{blog.Blog_Text}</p>
+
+                <p style={{ whiteSpace: "pre-wrap" }}>{blog.Blog_Text}</p>
                 {blog.Images && <img src={blog.Images} alt="post"/>}
                 <h2>{blog.id}</h2>
                 <h4>{blog.created_at?.split("T")[0]}</h4>
