@@ -17,14 +17,15 @@ export default function ProfileCard(){
                 </b></div>
             </div>
                 <div className="ProfileRow">
-                <div className="ProfileTextContainer">
-                    <h2><b>Currently Playing:</b> Forza Horizon 6 & New Lego Batman</h2>
-                    <h2><b>Currently Watching:</b> This random obama nature doc</h2>
-                    <h2><b>Song On Repeat:</b> Summer Rain - Le Parody/Gizmo Varillas</h2>
-                    <h2><b>Status:</b> Fearing Employment</h2>
-                    <h2><b>Learning:</b> Nothing atm :(</h2>
-                </div>
-                <img src="/assets/ProfilePics/PicOFMe.jpg"></img>
+                    <div className="ProfileTextContainer">
+                        <h2><b>Currently Playing:</b> Forza Horizon 6 & New Lego Batman</h2>
+                        <h2><b>Currently Watching:</b> This random obama nature doc</h2>
+                        <h2><b>Currently Reading:</b> All-Star Superman</h2>
+                        <h2><b>Song On Repeat:</b> BEAUTY AND THE BEST</h2>
+                        <h2><b>Status:</b> No longer Fearing Employment</h2>
+                        <h2><b>Learning:</b> Nothing atm :(</h2>
+                    </div>
+                    <img src="/assets/ProfilePics/PicOFMe.jpg"></img>
                 </div>
             </div>
             </div>
