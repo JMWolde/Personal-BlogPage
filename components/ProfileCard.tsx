@@ -19,10 +19,10 @@ export default function ProfileCard(){
                 <div className="ProfileRow">
                     <div className="ProfileTextContainer">
                         <h2><b>Currently Playing:</b> Forza Horizon 6 & New Lego Batman</h2>
-                        <h2><b>Currently Watching:</b> This random obama nature doc</h2>
+                        <h2><b>Currently Watching:</b> Smallville</h2>
                         <h2><b>Currently Reading:</b> All-Star Superman</h2>
-                        <h2><b>Song On Repeat:</b> BEAUTY AND THE BEAST - YE</h2>
-                        <h2><b>Status:</b> No longer Fearing Employment</h2>
+                        <h2><b>Song On Repeat:</b> ydoifeel? - Saam Sultan</h2>
+                        <h2><b>Status:</b> Bored af</h2>
                         <h2><b>Learning:</b> Nothing atm :(</h2>
                     </div>
                     <img src="/assets/ProfilePics/PicOFMe.jpg"></img>
