@@ -1,4 +1,4 @@
-import { Analytics } from '@vercel/analytics/react'
+import { Analytics } from '@vercel/analytics/next'
 import "./css/globals.css";
 import "./css/Noise.css"
 import type { ReactNode } from "react";
